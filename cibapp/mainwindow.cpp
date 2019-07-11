@@ -25,14 +25,34 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//Apos salvar chamar a funcao limpa textos das Eds
+
 void MainWindow::on_Btn_Salvar_clicked()
 {
-
+    //Valores do Form
     QString data_incubacao = ui->Edt_DataIncubacao->text();
+    QString protocolo = ui->Edt_Protocolo->text();
+    QString mercado = ui->CmB_Mercado->currentText();
+    QString origem = ui->CmB_OrigemMateriaPrima->currentText();
+    QString setor = ui->CmB_Setor->currentText();
+    QString amostra = ui->CmB_AmostraFase->currentText();
+    QString pontoColeta = ui->Edt_PontoColeta->text();
+    QString informacao = ui->EdtText_InformacoesComplementares->toPlainText();
 
     // [1]  Writing excel file(*.xlsx)
     QXlsx::Document xlsxW;
-    xlsxW.write("A1", data_incubacao); // write "Hello Qt!" to cell(A,1). it's shared string.
+
+    //linha e coluna
+    xlsxW.write(1,4, data_incubacao); // write to cell(A,1).
+    xlsxW.write(2,5, protocolo); // write to cell(B,1).
+    xlsxW.write(3,3, mercado); // write to cell(C,1).
+    xlsxW.write(4,3, origem); // write to cell(D,1).
+    xlsxW.write(5,3, setor); // write to cell(E,1).
+    xlsxW.write(5,3, amostra); // write to cell(F,1).
+    xlsxW.write(6,3, pontoColeta); // write to cell(G,1).
+    xlsxW.write(7,3, informacao); // write to cell(G,1).
+    //xlsxW.
+
     if ( xlsxW.saveAs("Laboratorio.xlsx") ) // save the document as 'Test.xlsx'
     {
         qDebug() << "[debug] success to write xlsx file";
@@ -45,7 +65,7 @@ void MainWindow::on_Btn_Salvar_clicked()
     qDebug() << "[debug] current directory is " << QDir::currentPath();
 
     // [2] Reading excel file(*.xlsx)
-    Document xlsxR("Test.xlsx");
+    Document xlsxR("Laboratorio.xlsx");
     if ( xlsxR.load() ) // load excel file
     {
         qDebug() << "[debug] success to load xlsx file.";
