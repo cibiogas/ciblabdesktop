@@ -20,6 +20,10 @@ private slots:
 
     void on_actionSair_triggered();
 
+    void on_CB_Amostra2_stateChanged(int arg1);
+
+    void on_CB_Amostra3_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
 };
