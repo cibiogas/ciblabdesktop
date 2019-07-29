@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1025</width>
+    <width>1035</width>
     <height>626</height>
    </rect>
   </property>
@@ -45,9 +45,15 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>111</width>
+       <width>151</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>Data de incubação</string>
@@ -72,6 +78,12 @@
        <height>17</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string>Protocolo</string>
      </property>
@@ -82,7 +94,7 @@
        <x>10</x>
        <y>90</y>
        <width>151</width>
-       <height>29</height>
+       <height>31</height>
       </rect>
      </property>
     </widget>
@@ -91,9 +103,15 @@
       <rect>
        <x>10</x>
        <y>130</y>
-       <width>61</width>
+       <width>111</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>Mercado</string>
@@ -139,9 +157,15 @@
       <rect>
        <x>10</x>
        <y>190</y>
-       <width>151</width>
+       <width>191</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>Origem da Matéria Prima</string>
@@ -156,6 +180,12 @@
        <height>17</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string>Setor</string>
      </property>
@@ -165,9 +195,15 @@
       <rect>
        <x>10</x>
        <y>310</y>
-       <width>81</width>
+       <width>111</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>Amostra/fase</string>
@@ -178,9 +214,15 @@
       <rect>
        <x>10</x>
        <y>370</y>
-       <width>101</width>
+       <width>151</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>Ponto de Coleta</string>
@@ -201,9 +243,15 @@
       <rect>
        <x>10</x>
        <y>430</y>
-       <width>191</width>
+       <width>221</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>Informações Complementares</string>
@@ -388,7 +436,7 @@
      <rect>
       <x>0</x>
       <y>530</y>
-      <width>1011</width>
+      <width>1021</width>
       <height>51</height>
      </rect>
     </property>
@@ -414,7 +462,7 @@
      <rect>
       <x>480</x>
       <y>0</y>
-      <width>531</width>
+      <width>541</width>
       <height>521</height>
      </rect>
     </property>
@@ -1152,7 +1200,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1025</width>
+     <width>1035</width>
      <height>23</height>
     </rect>
    </property>
