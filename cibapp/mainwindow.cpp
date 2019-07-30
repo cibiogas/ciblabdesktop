@@ -49,6 +49,35 @@ MainWindow::MainWindow(QWidget *parent) :
     //Edt pH
     ui->Edt_pH2->setEnabled(false);
     ui->Edt_pH3->setEnabled(false);
+
+    //Validadores para numeros
+    ui->Edt_Biogas1->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_Biogas2->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_Biogas3->setValidator(new QIntValidator(0, 10000000, this));
+
+    ui->Edt_Metano1->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_Metano2->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_Metano3->setValidator(new QIntValidator(0, 10000000, this));
+
+    ui->Edt_ST1->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_ST2->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_ST3->setValidator(new QIntValidator(0, 10000000, this));
+
+    ui->Edt_SV1->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_SV2->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_SV3->setValidator(new QIntValidator(0, 10000000, this));
+
+    ui->Edt_SF1->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_SF2->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_SF3->setValidator(new QIntValidator(0, 10000000, this));
+
+    ui->Edt_DQO1->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_DQO2->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_DQO3->setValidator(new QIntValidator(0, 10000000, this));
+
+    ui->Edt_pH1->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_pH2->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_pH3->setValidator(new QIntValidator(0, 10000000, this));
 }
 
 MainWindow::~MainWindow()
@@ -70,6 +99,34 @@ void MainWindow::on_Btn_Salvar_clicked()
     QString pontoColeta = ui->Edt_PontoColeta->text();
     QString informacao = ui->EdtText_InformacoesComplementares->toPlainText();
 
+    QString biogas1 = ui->Edt_Biogas1->text();
+    QString biogas2 = ui->Edt_Biogas2->text();
+    QString biogas3 = ui->Edt_Biogas3->text();
+
+    QString metano1 = ui->Edt_Metano1->text();
+    QString metano2 = ui->Edt_Metano2->text();
+    QString metano3 = ui->Edt_Metano3->text();
+
+    QString st1 = ui->Edt_ST1->text();
+    QString st2 = ui->Edt_ST2->text();
+    QString st3 = ui->Edt_ST3->text();
+
+    QString sv1 = ui->Edt_SV1->text();
+    QString sv2 = ui->Edt_SV2->text();
+    QString sv3 = ui->Edt_SV3->text();
+
+    QString sf1 = ui->Edt_SF1->text();
+    QString sf2 = ui->Edt_SF2->text();
+    QString sf3 = ui->Edt_SF3->text();
+
+    QString dqo1 = ui->Edt_DQO1->text();
+    QString dqo2 = ui->Edt_DQO2->text();
+    QString dqo3 = ui->Edt_DQO3->text();
+
+    QString ph1 = ui->Edt_pH1->text();
+    QString ph2 = ui->Edt_pH2->text();
+    QString ph3 = ui->Edt_pH3->text();
+
     //Form
     // [2] Reading excel file(*.xlsx)
     Document xlsxR("Laboratorio.xlsx");
@@ -82,7 +139,7 @@ void MainWindow::on_Btn_Salvar_clicked()
         Cell* cell = xlsxR.cellAt(row, col); // get cell pointer.
 
         //Verificar
-        while(cell != NULL ) {
+        while(cell) {
             row++;
             cell = xlsxR.cellAt(row, col);
         }
@@ -97,6 +154,26 @@ void MainWindow::on_Btn_Salvar_clicked()
         xlsxR.write(row,6, amostra);
         xlsxR.write(row,7, pontoColeta);
         xlsxR.write(row,8, informacao);
+
+        xlsxR.write(row,9, biogas1);
+        xlsxR.write(row,10, biogas2);
+        xlsxR.write(row,11, biogas3);
+
+        xlsxR.write(row,12, metano1);
+        xlsxR.write(row,13, metano2);
+        xlsxR.write(row,14, metano3);
+
+        xlsxR.write(row,15, st1);
+        xlsxR.write(row,16, st2);
+        xlsxR.write(row,17, st3);
+
+        xlsxR.write(row,18, dqo1);
+        xlsxR.write(row,19, dqo2);
+        xlsxR.write(row,20, dqo3);
+
+        xlsxR.write(row,21, ph1);
+        xlsxR.write(row,22, ph2);
+        xlsxR.write(row,23, ph3);
 
         xlsxR.save();
 
