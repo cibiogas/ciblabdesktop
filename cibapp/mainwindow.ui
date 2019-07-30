@@ -269,6 +269,9 @@
      <property name="autoFillBackground">
       <bool>false</bool>
      </property>
+     <property name="acceptRichText">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QComboBox" name="CmB_OrigemMateriaPrima">
      <property name="geometry">
@@ -1201,7 +1204,7 @@
      <x>0</x>
      <y>0</y>
      <width>1035</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArquivo">

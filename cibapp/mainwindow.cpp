@@ -179,6 +179,45 @@ void MainWindow::on_Btn_Salvar_clicked()
 
         //Mensagem que salvou o arquivo no XLSX
         QMessageBox::information(this, "Salvar", "Salvo com sucesso! - Data de Incubação: " + data_incubacao);
+
+        //Limpar Campos
+        //ui->Edt_DataIncubacao->setDate("01/01/2019");
+        ui->Edt_Protocolo->setText("");
+        //ui->CmB_Mercado->
+        //ui->CmB_Setor->
+        //ui->CmB_AmostraFase->
+        //ui->CmB_OrigemMateriaPrima->
+        ui->Edt_PontoColeta->setText("");
+        ui->EdtText_InformacoesComplementares->setText("");
+
+        ui->Edt_Biogas1->setText("");
+        ui->Edt_Biogas2->setText("");
+        ui->Edt_Biogas3->setText("");
+
+        ui->Edt_Metano1->setText("");
+        ui->Edt_Metano2->setText("");
+        ui->Edt_Metano3->setText("");
+
+        ui->Edt_ST1->setText("");
+        ui->Edt_ST2->setText("");
+        ui->Edt_ST3->setText("");
+
+        ui->Edt_SV1->setText("");
+        ui->Edt_SV2->setText("");
+        ui->Edt_SV3->setText("");
+
+        ui->Edt_SF1->setText("");
+        ui->Edt_SF2->setText("");
+        ui->Edt_SF3->setText("");
+
+        ui->Edt_DQO1->setText("");
+        ui->Edt_DQO2->setText("");
+        ui->Edt_DQO3->setText("");
+
+        ui->Edt_pH1->setText("");
+        ui->Edt_pH2->setText("");
+        ui->Edt_pH3->setText("");
+
         qDebug() << "[debug] success to save data on xlsx file.";
     }
     else

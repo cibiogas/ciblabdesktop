@@ -181,6 +181,7 @@ public:
         EdtText_InformacoesComplementares->setObjectName(QString::fromUtf8("EdtText_InformacoesComplementares"));
         EdtText_InformacoesComplementares->setGeometry(QRect(10, 450, 451, 64));
         EdtText_InformacoesComplementares->setAutoFillBackground(false);
+        EdtText_InformacoesComplementares->setAcceptRichText(true);
         CmB_OrigemMateriaPrima = new QComboBox(GrBox_Classificacao);
         CmB_OrigemMateriaPrima->addItem(QString());
         CmB_OrigemMateriaPrima->addItem(QString());
@@ -407,7 +408,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1035, 23));
+        menuBar->setGeometry(QRect(0, 0, 1035, 21));
         menuArquivo = new QMenu(menuBar);
         menuArquivo->setObjectName(QString::fromUtf8("menuArquivo"));
         menuAjuda = new QMenu(menuBar);
