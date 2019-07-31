@@ -99,32 +99,31 @@ void MainWindow::on_Btn_Salvar_clicked()
     QString pontoColeta = ui->Edt_PontoColeta->text();
     QString informacao = ui->EdtText_InformacoesComplementares->toPlainText();
 
+    //Campos Amostra 1
     QString biogas1 = ui->Edt_Biogas1->text();
-    QString biogas2 = ui->Edt_Biogas2->text();
-    QString biogas3 = ui->Edt_Biogas3->text();
-
     QString metano1 = ui->Edt_Metano1->text();
-    QString metano2 = ui->Edt_Metano2->text();
-    QString metano3 = ui->Edt_Metano3->text();
-
     QString st1 = ui->Edt_ST1->text();
-    QString st2 = ui->Edt_ST2->text();
-    QString st3 = ui->Edt_ST3->text();
-
     QString sv1 = ui->Edt_SV1->text();
-    QString sv2 = ui->Edt_SV2->text();
-    QString sv3 = ui->Edt_SV3->text();
-
     QString sf1 = ui->Edt_SF1->text();
-    QString sf2 = ui->Edt_SF2->text();
-    QString sf3 = ui->Edt_SF3->text();
-
     QString dqo1 = ui->Edt_DQO1->text();
-    QString dqo2 = ui->Edt_DQO2->text();
-    QString dqo3 = ui->Edt_DQO3->text();
-
     QString ph1 = ui->Edt_pH1->text();
+
+    //Campos Amostra 2
+    QString biogas2 = ui->Edt_Biogas2->text();
+    QString metano2 = ui->Edt_Metano2->text();
+    QString st2 = ui->Edt_ST2->text();
+    QString sv2 = ui->Edt_SV2->text();
+    QString sf2 = ui->Edt_SF2->text();
+    QString dqo2 = ui->Edt_DQO2->text();
     QString ph2 = ui->Edt_pH2->text();
+
+    //Campos Amostra 3
+    QString biogas3 = ui->Edt_Biogas3->text();
+    QString metano3 = ui->Edt_Metano3->text();
+    QString st3 = ui->Edt_ST3->text();
+    QString sv3 = ui->Edt_SV3->text();
+    QString sf3 = ui->Edt_SF3->text();
+    QString dqo3 = ui->Edt_DQO3->text();
     QString ph3 = ui->Edt_pH3->text();
 
     //Form
@@ -134,8 +133,8 @@ void MainWindow::on_Btn_Salvar_clicked()
     {
 
         //criar estrutura de repetição para mudar a linha
-        int row = 1;
-        int col = 2;
+        int row = 2;
+        int col = 3;
         Cell* cell = xlsxR.cellAt(row, col); // get cell pointer.
 
         //Verificar
@@ -144,7 +143,7 @@ void MainWindow::on_Btn_Salvar_clicked()
             cell = xlsxR.cellAt(row, col);
         }
 
-        //se a celula for igual a nula escrevemos um novo dados
+        //se a celula for igual a nula escrevemos uma nova linha
         //linha e coluna
         xlsxR.write(row,1, data_incubacao); // write to cell(row,col).
         xlsxR.write(row,2, protocolo);
