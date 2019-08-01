@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.7
+** Created by: Qt User Interface Compiler version 5.13.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -12,13 +12,10 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -54,6 +51,8 @@ public:
     QComboBox *CmB_OrigemMateriaPrima;
     QComboBox *CmB_Setor;
     QComboBox *CmB_AmostraFase;
+    QLabel *Lbl_Procedencia;
+    QComboBox *CmB_Procedencia;
     QGroupBox *groupBox;
     QPushButton *Btn_Salvar;
     QGroupBox *GrBox_Valores;
@@ -86,8 +85,6 @@ public:
     QLineEdit *Edt_pH1;
     QLineEdit *Edt_pH2;
     QLabel *Lbl_pH;
-    QCheckBox *CB_Amostra2;
-    QCheckBox *CB_Amostra3;
     QLabel *Lbl_DQO_2;
     QLabel *Lbl_SV1_2;
     QLabel *Lbl_Metano_2;
@@ -103,6 +100,11 @@ public:
     QLabel *Lbl_Biogas_3;
     QLabel *Lbl_pH_3;
     QFrame *line;
+    QFrame *line_2;
+    QFrame *line_3;
+    QFrame *line_4;
+    QFrame *line_5;
+    QFrame *line_6;
     QMenuBar *menuBar;
     QMenu *menuArquivo;
     QMenu *menuAjuda;
@@ -112,283 +114,340 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("MainWindow"));
+            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->setWindowModality(Qt::NonModal);
-        MainWindow->resize(1025, 626);
+        MainWindow->resize(1045, 728);
         MainWindow->setAutoFillBackground(false);
-        MainWindow->setStyleSheet(QLatin1String("QGroupBox {\n"
+        MainWindow->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
 "    background-color: #e1e1e1;\n"
 "}"));
         actionSair = new QAction(MainWindow);
-        actionSair->setObjectName(QStringLiteral("actionSair"));
+        actionSair->setObjectName(QString::fromUtf8("actionSair"));
         centralWidget = new QWidget(MainWindow);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         GrBox_Classificacao = new QGroupBox(centralWidget);
-        GrBox_Classificacao->setObjectName(QStringLiteral("GrBox_Classificacao"));
-        GrBox_Classificacao->setGeometry(QRect(0, 0, 471, 521));
+        GrBox_Classificacao->setObjectName(QString::fromUtf8("GrBox_Classificacao"));
+        GrBox_Classificacao->setGeometry(QRect(0, 0, 471, 621));
         GrBox_Classificacao->setAutoFillBackground(false);
         Lbl_DataIncubacao = new QLabel(GrBox_Classificacao);
-        Lbl_DataIncubacao->setObjectName(QStringLiteral("Lbl_DataIncubacao"));
+        Lbl_DataIncubacao->setObjectName(QString::fromUtf8("Lbl_DataIncubacao"));
         Lbl_DataIncubacao->setGeometry(QRect(10, 10, 151, 17));
         QFont font;
         font.setBold(true);
         font.setWeight(75);
         Lbl_DataIncubacao->setFont(font);
         Edt_DataIncubacao = new QDateEdit(GrBox_Classificacao);
-        Edt_DataIncubacao->setObjectName(QStringLiteral("Edt_DataIncubacao"));
+        Edt_DataIncubacao->setObjectName(QString::fromUtf8("Edt_DataIncubacao"));
         Edt_DataIncubacao->setGeometry(QRect(10, 30, 110, 27));
         Lbl_Protocolo = new QLabel(GrBox_Classificacao);
-        Lbl_Protocolo->setObjectName(QStringLiteral("Lbl_Protocolo"));
+        Lbl_Protocolo->setObjectName(QString::fromUtf8("Lbl_Protocolo"));
         Lbl_Protocolo->setGeometry(QRect(10, 70, 91, 17));
         Lbl_Protocolo->setFont(font);
         Edt_Protocolo = new QLineEdit(GrBox_Classificacao);
-        Edt_Protocolo->setObjectName(QStringLiteral("Edt_Protocolo"));
+        Edt_Protocolo->setObjectName(QString::fromUtf8("Edt_Protocolo"));
         Edt_Protocolo->setGeometry(QRect(10, 90, 151, 31));
         Lbl_Mercado = new QLabel(GrBox_Classificacao);
-        Lbl_Mercado->setObjectName(QStringLiteral("Lbl_Mercado"));
-        Lbl_Mercado->setGeometry(QRect(10, 130, 111, 17));
+        Lbl_Mercado->setObjectName(QString::fromUtf8("Lbl_Mercado"));
+        Lbl_Mercado->setGeometry(QRect(10, 200, 111, 17));
         Lbl_Mercado->setFont(font);
         CmB_Mercado = new QComboBox(GrBox_Classificacao);
-        CmB_Mercado->setObjectName(QStringLiteral("CmB_Mercado"));
-        CmB_Mercado->setGeometry(QRect(10, 150, 171, 25));
+        CmB_Mercado->addItem(QString());
+        CmB_Mercado->addItem(QString());
+        CmB_Mercado->addItem(QString());
+        CmB_Mercado->addItem(QString());
+        CmB_Mercado->addItem(QString());
+        CmB_Mercado->setObjectName(QString::fromUtf8("CmB_Mercado"));
+        CmB_Mercado->setGeometry(QRect(10, 220, 171, 25));
         Lbl_OrigemMateriaPrima = new QLabel(GrBox_Classificacao);
-        Lbl_OrigemMateriaPrima->setObjectName(QStringLiteral("Lbl_OrigemMateriaPrima"));
-        Lbl_OrigemMateriaPrima->setGeometry(QRect(10, 190, 191, 17));
+        Lbl_OrigemMateriaPrima->setObjectName(QString::fromUtf8("Lbl_OrigemMateriaPrima"));
+        Lbl_OrigemMateriaPrima->setGeometry(QRect(10, 260, 191, 17));
         Lbl_OrigemMateriaPrima->setFont(font);
         Lbl_Setor = new QLabel(GrBox_Classificacao);
-        Lbl_Setor->setObjectName(QStringLiteral("Lbl_Setor"));
-        Lbl_Setor->setGeometry(QRect(10, 250, 41, 17));
+        Lbl_Setor->setObjectName(QString::fromUtf8("Lbl_Setor"));
+        Lbl_Setor->setGeometry(QRect(10, 320, 41, 17));
         Lbl_Setor->setFont(font);
         Lbl_AmostraFase = new QLabel(GrBox_Classificacao);
-        Lbl_AmostraFase->setObjectName(QStringLiteral("Lbl_AmostraFase"));
-        Lbl_AmostraFase->setGeometry(QRect(10, 310, 111, 17));
+        Lbl_AmostraFase->setObjectName(QString::fromUtf8("Lbl_AmostraFase"));
+        Lbl_AmostraFase->setGeometry(QRect(10, 380, 111, 17));
         Lbl_AmostraFase->setFont(font);
         Lbl_PontoColeta = new QLabel(GrBox_Classificacao);
-        Lbl_PontoColeta->setObjectName(QStringLiteral("Lbl_PontoColeta"));
-        Lbl_PontoColeta->setGeometry(QRect(10, 370, 151, 17));
+        Lbl_PontoColeta->setObjectName(QString::fromUtf8("Lbl_PontoColeta"));
+        Lbl_PontoColeta->setGeometry(QRect(10, 440, 151, 17));
         Lbl_PontoColeta->setFont(font);
         Edt_PontoColeta = new QLineEdit(GrBox_Classificacao);
-        Edt_PontoColeta->setObjectName(QStringLiteral("Edt_PontoColeta"));
-        Edt_PontoColeta->setGeometry(QRect(10, 390, 401, 29));
+        Edt_PontoColeta->setObjectName(QString::fromUtf8("Edt_PontoColeta"));
+        Edt_PontoColeta->setGeometry(QRect(10, 460, 401, 29));
         Lbl_InformacaoComplementar = new QLabel(GrBox_Classificacao);
-        Lbl_InformacaoComplementar->setObjectName(QStringLiteral("Lbl_InformacaoComplementar"));
-        Lbl_InformacaoComplementar->setGeometry(QRect(10, 430, 221, 17));
+        Lbl_InformacaoComplementar->setObjectName(QString::fromUtf8("Lbl_InformacaoComplementar"));
+        Lbl_InformacaoComplementar->setGeometry(QRect(10, 510, 221, 17));
         Lbl_InformacaoComplementar->setFont(font);
         EdtText_InformacoesComplementares = new QTextEdit(GrBox_Classificacao);
-        EdtText_InformacoesComplementares->setObjectName(QStringLiteral("EdtText_InformacoesComplementares"));
-        EdtText_InformacoesComplementares->setGeometry(QRect(10, 450, 451, 64));
+        EdtText_InformacoesComplementares->setObjectName(QString::fromUtf8("EdtText_InformacoesComplementares"));
+        EdtText_InformacoesComplementares->setGeometry(QRect(10, 530, 451, 64));
         EdtText_InformacoesComplementares->setAutoFillBackground(false);
+        EdtText_InformacoesComplementares->setAcceptRichText(true);
         CmB_OrigemMateriaPrima = new QComboBox(GrBox_Classificacao);
-        CmB_OrigemMateriaPrima->setObjectName(QStringLiteral("CmB_OrigemMateriaPrima"));
-        CmB_OrigemMateriaPrima->setGeometry(QRect(10, 210, 261, 25));
+        CmB_OrigemMateriaPrima->addItem(QString());
+        CmB_OrigemMateriaPrima->addItem(QString());
+        CmB_OrigemMateriaPrima->addItem(QString());
+        CmB_OrigemMateriaPrima->addItem(QString());
+        CmB_OrigemMateriaPrima->addItem(QString());
+        CmB_OrigemMateriaPrima->addItem(QString());
+        CmB_OrigemMateriaPrima->addItem(QString());
+        CmB_OrigemMateriaPrima->addItem(QString());
+        CmB_OrigemMateriaPrima->setObjectName(QString::fromUtf8("CmB_OrigemMateriaPrima"));
+        CmB_OrigemMateriaPrima->setGeometry(QRect(10, 280, 261, 25));
         CmB_Setor = new QComboBox(GrBox_Classificacao);
-        CmB_Setor->setObjectName(QStringLiteral("CmB_Setor"));
-        CmB_Setor->setGeometry(QRect(10, 270, 261, 25));
+        CmB_Setor->addItem(QString());
+        CmB_Setor->addItem(QString());
+        CmB_Setor->addItem(QString());
+        CmB_Setor->addItem(QString());
+        CmB_Setor->addItem(QString());
+        CmB_Setor->addItem(QString());
+        CmB_Setor->addItem(QString());
+        CmB_Setor->addItem(QString());
+        CmB_Setor->addItem(QString());
+        CmB_Setor->addItem(QString());
+        CmB_Setor->setObjectName(QString::fromUtf8("CmB_Setor"));
+        CmB_Setor->setGeometry(QRect(10, 340, 261, 25));
         CmB_AmostraFase = new QComboBox(GrBox_Classificacao);
-        CmB_AmostraFase->setObjectName(QStringLiteral("CmB_AmostraFase"));
-        CmB_AmostraFase->setGeometry(QRect(10, 330, 261, 25));
+        CmB_AmostraFase->addItem(QString());
+        CmB_AmostraFase->addItem(QString());
+        CmB_AmostraFase->addItem(QString());
+        CmB_AmostraFase->addItem(QString());
+        CmB_AmostraFase->addItem(QString());
+        CmB_AmostraFase->addItem(QString());
+        CmB_AmostraFase->addItem(QString());
+        CmB_AmostraFase->addItem(QString());
+        CmB_AmostraFase->setObjectName(QString::fromUtf8("CmB_AmostraFase"));
+        CmB_AmostraFase->setGeometry(QRect(10, 400, 261, 25));
+        Lbl_Procedencia = new QLabel(GrBox_Classificacao);
+        Lbl_Procedencia->setObjectName(QString::fromUtf8("Lbl_Procedencia"));
+        Lbl_Procedencia->setGeometry(QRect(10, 140, 111, 10));
+        Lbl_Procedencia->setFont(font);
+        CmB_Procedencia = new QComboBox(GrBox_Classificacao);
+        CmB_Procedencia->addItem(QString());
+        CmB_Procedencia->setObjectName(QString::fromUtf8("CmB_Procedencia"));
+        CmB_Procedencia->setGeometry(QRect(10, 160, 171, 25));
         groupBox = new QGroupBox(centralWidget);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setGeometry(QRect(0, 530, 1011, 51));
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox->setGeometry(QRect(0, 630, 1021, 51));
         Btn_Salvar = new QPushButton(groupBox);
-        Btn_Salvar->setObjectName(QStringLiteral("Btn_Salvar"));
+        Btn_Salvar->setObjectName(QString::fromUtf8("Btn_Salvar"));
         Btn_Salvar->setGeometry(QRect(910, 10, 87, 29));
         GrBox_Valores = new QGroupBox(centralWidget);
-        GrBox_Valores->setObjectName(QStringLiteral("GrBox_Valores"));
-        GrBox_Valores->setGeometry(QRect(480, 0, 531, 521));
+        GrBox_Valores->setObjectName(QString::fromUtf8("GrBox_Valores"));
+        GrBox_Valores->setGeometry(QRect(480, 0, 551, 621));
         GrBox_Valores->setAutoFillBackground(false);
         Lbl_Biogas = new QLabel(GrBox_Valores);
-        Lbl_Biogas->setObjectName(QStringLiteral("Lbl_Biogas"));
+        Lbl_Biogas->setObjectName(QString::fromUtf8("Lbl_Biogas"));
         Lbl_Biogas->setGeometry(QRect(10, 40, 151, 17));
         Lbl_Biogas->setFont(font);
         Edt_Biogas1 = new QLineEdit(GrBox_Valores);
-        Edt_Biogas1->setObjectName(QStringLiteral("Edt_Biogas1"));
-        Edt_Biogas1->setGeometry(QRect(10, 60, 151, 21));
+        Edt_Biogas1->setObjectName(QString::fromUtf8("Edt_Biogas1"));
+        Edt_Biogas1->setGeometry(QRect(10, 60, 161, 21));
         Lbl_AmostraBiogas1 = new QLabel(GrBox_Valores);
-        Lbl_AmostraBiogas1->setObjectName(QStringLiteral("Lbl_AmostraBiogas1"));
-        Lbl_AmostraBiogas1->setGeometry(QRect(50, 10, 61, 17));
+        Lbl_AmostraBiogas1->setObjectName(QString::fromUtf8("Lbl_AmostraBiogas1"));
+        Lbl_AmostraBiogas1->setGeometry(QRect(250, 10, 61, 17));
         Lbl_AmostraBiogas1->setFont(font);
         Edt_Biogas2 = new QLineEdit(GrBox_Valores);
-        Edt_Biogas2->setObjectName(QStringLiteral("Edt_Biogas2"));
+        Edt_Biogas2->setObjectName(QString::fromUtf8("Edt_Biogas2"));
         Edt_Biogas2->setEnabled(true);
-        Edt_Biogas2->setGeometry(QRect(200, 60, 151, 21));
+        Edt_Biogas2->setGeometry(QRect(10, 110, 161, 21));
         Edt_Biogas3 = new QLineEdit(GrBox_Valores);
-        Edt_Biogas3->setObjectName(QStringLiteral("Edt_Biogas3"));
+        Edt_Biogas3->setObjectName(QString::fromUtf8("Edt_Biogas3"));
         Edt_Biogas3->setEnabled(true);
-        Edt_Biogas3->setGeometry(QRect(370, 60, 151, 21));
+        Edt_Biogas3->setGeometry(QRect(10, 160, 161, 21));
         Edt_Metano3 = new QLineEdit(GrBox_Valores);
-        Edt_Metano3->setObjectName(QStringLiteral("Edt_Metano3"));
+        Edt_Metano3->setObjectName(QString::fromUtf8("Edt_Metano3"));
         Edt_Metano3->setEnabled(true);
-        Edt_Metano3->setGeometry(QRect(370, 110, 151, 21));
+        Edt_Metano3->setGeometry(QRect(10, 330, 161, 21));
         Edt_Metano2 = new QLineEdit(GrBox_Valores);
-        Edt_Metano2->setObjectName(QStringLiteral("Edt_Metano2"));
+        Edt_Metano2->setObjectName(QString::fromUtf8("Edt_Metano2"));
         Edt_Metano2->setEnabled(true);
-        Edt_Metano2->setGeometry(QRect(200, 110, 151, 21));
+        Edt_Metano2->setGeometry(QRect(10, 280, 161, 21));
         Edt_Metano1 = new QLineEdit(GrBox_Valores);
-        Edt_Metano1->setObjectName(QStringLiteral("Edt_Metano1"));
-        Edt_Metano1->setGeometry(QRect(10, 110, 151, 21));
+        Edt_Metano1->setObjectName(QString::fromUtf8("Edt_Metano1"));
+        Edt_Metano1->setGeometry(QRect(10, 230, 161, 21));
         Lbl_Metano = new QLabel(GrBox_Valores);
-        Lbl_Metano->setObjectName(QStringLiteral("Lbl_Metano"));
-        Lbl_Metano->setGeometry(QRect(10, 90, 161, 17));
+        Lbl_Metano->setObjectName(QString::fromUtf8("Lbl_Metano"));
+        Lbl_Metano->setGeometry(QRect(10, 210, 161, 17));
         Lbl_Metano->setFont(font);
         Edt_ST1 = new QLineEdit(GrBox_Valores);
-        Edt_ST1->setObjectName(QStringLiteral("Edt_ST1"));
-        Edt_ST1->setGeometry(QRect(10, 160, 151, 21));
+        Edt_ST1->setObjectName(QString::fromUtf8("Edt_ST1"));
+        Edt_ST1->setGeometry(QRect(10, 400, 161, 21));
         Edt_ST2 = new QLineEdit(GrBox_Valores);
-        Edt_ST2->setObjectName(QStringLiteral("Edt_ST2"));
+        Edt_ST2->setObjectName(QString::fromUtf8("Edt_ST2"));
         Edt_ST2->setEnabled(true);
-        Edt_ST2->setGeometry(QRect(200, 160, 151, 21));
+        Edt_ST2->setGeometry(QRect(10, 450, 161, 21));
         Edt_ST3 = new QLineEdit(GrBox_Valores);
-        Edt_ST3->setObjectName(QStringLiteral("Edt_ST3"));
+        Edt_ST3->setObjectName(QString::fromUtf8("Edt_ST3"));
         Edt_ST3->setEnabled(true);
-        Edt_ST3->setGeometry(QRect(370, 160, 151, 21));
+        Edt_ST3->setGeometry(QRect(10, 500, 161, 21));
         Lbl_ST = new QLabel(GrBox_Valores);
-        Lbl_ST->setObjectName(QStringLiteral("Lbl_ST"));
-        Lbl_ST->setGeometry(QRect(10, 140, 151, 17));
+        Lbl_ST->setObjectName(QString::fromUtf8("Lbl_ST"));
+        Lbl_ST->setGeometry(QRect(10, 380, 151, 17));
         Lbl_ST->setFont(font);
         Edt_SV3 = new QLineEdit(GrBox_Valores);
-        Edt_SV3->setObjectName(QStringLiteral("Edt_SV3"));
+        Edt_SV3->setObjectName(QString::fromUtf8("Edt_SV3"));
         Edt_SV3->setEnabled(true);
-        Edt_SV3->setGeometry(QRect(370, 210, 151, 21));
+        Edt_SV3->setGeometry(QRect(210, 160, 161, 21));
         Lbl_SV1 = new QLabel(GrBox_Valores);
-        Lbl_SV1->setObjectName(QStringLiteral("Lbl_SV1"));
-        Lbl_SV1->setGeometry(QRect(10, 190, 151, 17));
+        Lbl_SV1->setObjectName(QString::fromUtf8("Lbl_SV1"));
+        Lbl_SV1->setGeometry(QRect(210, 40, 151, 17));
         Lbl_SV1->setFont(font);
         Edt_SV1 = new QLineEdit(GrBox_Valores);
-        Edt_SV1->setObjectName(QStringLiteral("Edt_SV1"));
-        Edt_SV1->setGeometry(QRect(10, 210, 151, 21));
+        Edt_SV1->setObjectName(QString::fromUtf8("Edt_SV1"));
+        Edt_SV1->setGeometry(QRect(210, 60, 161, 21));
         Edt_SV2 = new QLineEdit(GrBox_Valores);
-        Edt_SV2->setObjectName(QStringLiteral("Edt_SV2"));
+        Edt_SV2->setObjectName(QString::fromUtf8("Edt_SV2"));
         Edt_SV2->setEnabled(true);
-        Edt_SV2->setGeometry(QRect(200, 210, 151, 21));
+        Edt_SV2->setGeometry(QRect(210, 110, 161, 21));
         Edt_SF3 = new QLineEdit(GrBox_Valores);
-        Edt_SF3->setObjectName(QStringLiteral("Edt_SF3"));
+        Edt_SF3->setObjectName(QString::fromUtf8("Edt_SF3"));
         Edt_SF3->setEnabled(true);
-        Edt_SF3->setGeometry(QRect(370, 260, 151, 21));
+        Edt_SF3->setGeometry(QRect(210, 330, 161, 21));
         Lbl_SF = new QLabel(GrBox_Valores);
-        Lbl_SF->setObjectName(QStringLiteral("Lbl_SF"));
-        Lbl_SF->setGeometry(QRect(10, 240, 151, 17));
+        Lbl_SF->setObjectName(QString::fromUtf8("Lbl_SF"));
+        Lbl_SF->setGeometry(QRect(210, 210, 151, 17));
         Lbl_SF->setFont(font);
         Edt_SF2 = new QLineEdit(GrBox_Valores);
-        Edt_SF2->setObjectName(QStringLiteral("Edt_SF2"));
+        Edt_SF2->setObjectName(QString::fromUtf8("Edt_SF2"));
         Edt_SF2->setEnabled(true);
-        Edt_SF2->setGeometry(QRect(200, 260, 151, 21));
+        Edt_SF2->setGeometry(QRect(210, 280, 161, 21));
         Edt_SF1 = new QLineEdit(GrBox_Valores);
-        Edt_SF1->setObjectName(QStringLiteral("Edt_SF1"));
-        Edt_SF1->setGeometry(QRect(10, 260, 151, 21));
+        Edt_SF1->setObjectName(QString::fromUtf8("Edt_SF1"));
+        Edt_SF1->setGeometry(QRect(210, 230, 161, 21));
         Edt_DQO3 = new QLineEdit(GrBox_Valores);
-        Edt_DQO3->setObjectName(QStringLiteral("Edt_DQO3"));
+        Edt_DQO3->setObjectName(QString::fromUtf8("Edt_DQO3"));
         Edt_DQO3->setEnabled(true);
-        Edt_DQO3->setGeometry(QRect(370, 310, 151, 21));
+        Edt_DQO3->setGeometry(QRect(210, 500, 161, 21));
         Edt_DQO2 = new QLineEdit(GrBox_Valores);
-        Edt_DQO2->setObjectName(QStringLiteral("Edt_DQO2"));
+        Edt_DQO2->setObjectName(QString::fromUtf8("Edt_DQO2"));
         Edt_DQO2->setEnabled(true);
-        Edt_DQO2->setGeometry(QRect(200, 310, 151, 21));
+        Edt_DQO2->setGeometry(QRect(210, 450, 161, 21));
         Edt_DQO1 = new QLineEdit(GrBox_Valores);
-        Edt_DQO1->setObjectName(QStringLiteral("Edt_DQO1"));
-        Edt_DQO1->setGeometry(QRect(10, 310, 151, 21));
+        Edt_DQO1->setObjectName(QString::fromUtf8("Edt_DQO1"));
+        Edt_DQO1->setGeometry(QRect(210, 400, 161, 21));
         Lbl_DQO = new QLabel(GrBox_Valores);
-        Lbl_DQO->setObjectName(QStringLiteral("Lbl_DQO"));
-        Lbl_DQO->setGeometry(QRect(10, 290, 151, 17));
+        Lbl_DQO->setObjectName(QString::fromUtf8("Lbl_DQO"));
+        Lbl_DQO->setGeometry(QRect(210, 380, 151, 17));
         Lbl_DQO->setFont(font);
         Edt_pH3 = new QLineEdit(GrBox_Valores);
-        Edt_pH3->setObjectName(QStringLiteral("Edt_pH3"));
+        Edt_pH3->setObjectName(QString::fromUtf8("Edt_pH3"));
         Edt_pH3->setEnabled(true);
-        Edt_pH3->setGeometry(QRect(370, 360, 151, 21));
+        Edt_pH3->setGeometry(QRect(390, 160, 151, 21));
         Edt_pH1 = new QLineEdit(GrBox_Valores);
-        Edt_pH1->setObjectName(QStringLiteral("Edt_pH1"));
-        Edt_pH1->setGeometry(QRect(10, 360, 151, 21));
+        Edt_pH1->setObjectName(QString::fromUtf8("Edt_pH1"));
+        Edt_pH1->setGeometry(QRect(390, 60, 151, 21));
         Edt_pH2 = new QLineEdit(GrBox_Valores);
-        Edt_pH2->setObjectName(QStringLiteral("Edt_pH2"));
+        Edt_pH2->setObjectName(QString::fromUtf8("Edt_pH2"));
         Edt_pH2->setEnabled(true);
-        Edt_pH2->setGeometry(QRect(200, 360, 151, 21));
+        Edt_pH2->setGeometry(QRect(390, 110, 151, 21));
         Lbl_pH = new QLabel(GrBox_Valores);
-        Lbl_pH->setObjectName(QStringLiteral("Lbl_pH"));
-        Lbl_pH->setGeometry(QRect(10, 340, 151, 17));
+        Lbl_pH->setObjectName(QString::fromUtf8("Lbl_pH"));
+        Lbl_pH->setGeometry(QRect(390, 40, 151, 17));
         Lbl_pH->setFont(font);
-        CB_Amostra2 = new QCheckBox(GrBox_Valores);
-        CB_Amostra2->setObjectName(QStringLiteral("CB_Amostra2"));
-        CB_Amostra2->setGeometry(QRect(220, 10, 87, 22));
-        CB_Amostra2->setFont(font);
-        CB_Amostra3 = new QCheckBox(GrBox_Valores);
-        CB_Amostra3->setObjectName(QStringLiteral("CB_Amostra3"));
-        CB_Amostra3->setGeometry(QRect(400, 10, 87, 22));
-        CB_Amostra3->setFont(font);
         Lbl_DQO_2 = new QLabel(GrBox_Valores);
-        Lbl_DQO_2->setObjectName(QStringLiteral("Lbl_DQO_2"));
-        Lbl_DQO_2->setGeometry(QRect(200, 290, 151, 17));
+        Lbl_DQO_2->setObjectName(QString::fromUtf8("Lbl_DQO_2"));
+        Lbl_DQO_2->setGeometry(QRect(210, 430, 151, 17));
         Lbl_DQO_2->setFont(font);
         Lbl_SV1_2 = new QLabel(GrBox_Valores);
-        Lbl_SV1_2->setObjectName(QStringLiteral("Lbl_SV1_2"));
-        Lbl_SV1_2->setGeometry(QRect(200, 190, 151, 17));
+        Lbl_SV1_2->setObjectName(QString::fromUtf8("Lbl_SV1_2"));
+        Lbl_SV1_2->setGeometry(QRect(210, 90, 151, 17));
         Lbl_SV1_2->setFont(font);
         Lbl_Metano_2 = new QLabel(GrBox_Valores);
-        Lbl_Metano_2->setObjectName(QStringLiteral("Lbl_Metano_2"));
-        Lbl_Metano_2->setGeometry(QRect(200, 90, 161, 17));
+        Lbl_Metano_2->setObjectName(QString::fromUtf8("Lbl_Metano_2"));
+        Lbl_Metano_2->setGeometry(QRect(10, 260, 161, 17));
         Lbl_Metano_2->setFont(font);
         Lbl_SF_2 = new QLabel(GrBox_Valores);
-        Lbl_SF_2->setObjectName(QStringLiteral("Lbl_SF_2"));
-        Lbl_SF_2->setGeometry(QRect(200, 240, 151, 17));
+        Lbl_SF_2->setObjectName(QString::fromUtf8("Lbl_SF_2"));
+        Lbl_SF_2->setGeometry(QRect(210, 260, 151, 17));
         Lbl_SF_2->setFont(font);
         Lbl_ST_2 = new QLabel(GrBox_Valores);
-        Lbl_ST_2->setObjectName(QStringLiteral("Lbl_ST_2"));
-        Lbl_ST_2->setGeometry(QRect(200, 140, 151, 17));
+        Lbl_ST_2->setObjectName(QString::fromUtf8("Lbl_ST_2"));
+        Lbl_ST_2->setGeometry(QRect(10, 430, 151, 17));
         Lbl_ST_2->setFont(font);
         Lbl_Biogas_2 = new QLabel(GrBox_Valores);
-        Lbl_Biogas_2->setObjectName(QStringLiteral("Lbl_Biogas_2"));
-        Lbl_Biogas_2->setGeometry(QRect(200, 40, 151, 17));
+        Lbl_Biogas_2->setObjectName(QString::fromUtf8("Lbl_Biogas_2"));
+        Lbl_Biogas_2->setGeometry(QRect(10, 90, 151, 17));
         Lbl_Biogas_2->setFont(font);
         Lbl_pH_2 = new QLabel(GrBox_Valores);
-        Lbl_pH_2->setObjectName(QStringLiteral("Lbl_pH_2"));
-        Lbl_pH_2->setGeometry(QRect(200, 340, 151, 17));
+        Lbl_pH_2->setObjectName(QString::fromUtf8("Lbl_pH_2"));
+        Lbl_pH_2->setGeometry(QRect(390, 90, 151, 17));
         Lbl_pH_2->setFont(font);
         Lbl_Metano_3 = new QLabel(GrBox_Valores);
-        Lbl_Metano_3->setObjectName(QStringLiteral("Lbl_Metano_3"));
-        Lbl_Metano_3->setGeometry(QRect(370, 90, 161, 17));
+        Lbl_Metano_3->setObjectName(QString::fromUtf8("Lbl_Metano_3"));
+        Lbl_Metano_3->setGeometry(QRect(10, 310, 161, 17));
         Lbl_Metano_3->setFont(font);
         Lbl_SV1_3 = new QLabel(GrBox_Valores);
-        Lbl_SV1_3->setObjectName(QStringLiteral("Lbl_SV1_3"));
-        Lbl_SV1_3->setGeometry(QRect(370, 190, 151, 17));
+        Lbl_SV1_3->setObjectName(QString::fromUtf8("Lbl_SV1_3"));
+        Lbl_SV1_3->setGeometry(QRect(210, 140, 151, 17));
         Lbl_SV1_3->setFont(font);
         Lbl_DQO_3 = new QLabel(GrBox_Valores);
-        Lbl_DQO_3->setObjectName(QStringLiteral("Lbl_DQO_3"));
-        Lbl_DQO_3->setGeometry(QRect(370, 290, 151, 17));
+        Lbl_DQO_3->setObjectName(QString::fromUtf8("Lbl_DQO_3"));
+        Lbl_DQO_3->setGeometry(QRect(210, 480, 151, 17));
         Lbl_DQO_3->setFont(font);
         Lbl_SF_3 = new QLabel(GrBox_Valores);
-        Lbl_SF_3->setObjectName(QStringLiteral("Lbl_SF_3"));
-        Lbl_SF_3->setGeometry(QRect(370, 240, 151, 17));
+        Lbl_SF_3->setObjectName(QString::fromUtf8("Lbl_SF_3"));
+        Lbl_SF_3->setGeometry(QRect(210, 310, 151, 17));
         Lbl_SF_3->setFont(font);
         Lbl_ST_3 = new QLabel(GrBox_Valores);
-        Lbl_ST_3->setObjectName(QStringLiteral("Lbl_ST_3"));
-        Lbl_ST_3->setGeometry(QRect(370, 140, 151, 17));
+        Lbl_ST_3->setObjectName(QString::fromUtf8("Lbl_ST_3"));
+        Lbl_ST_3->setGeometry(QRect(10, 480, 151, 17));
         Lbl_ST_3->setFont(font);
         Lbl_Biogas_3 = new QLabel(GrBox_Valores);
-        Lbl_Biogas_3->setObjectName(QStringLiteral("Lbl_Biogas_3"));
-        Lbl_Biogas_3->setGeometry(QRect(370, 40, 151, 17));
+        Lbl_Biogas_3->setObjectName(QString::fromUtf8("Lbl_Biogas_3"));
+        Lbl_Biogas_3->setGeometry(QRect(10, 140, 151, 17));
         Lbl_Biogas_3->setFont(font);
         Lbl_pH_3 = new QLabel(GrBox_Valores);
-        Lbl_pH_3->setObjectName(QStringLiteral("Lbl_pH_3"));
-        Lbl_pH_3->setGeometry(QRect(370, 340, 151, 17));
+        Lbl_pH_3->setObjectName(QString::fromUtf8("Lbl_pH_3"));
+        Lbl_pH_3->setGeometry(QRect(390, 140, 151, 17));
         Lbl_pH_3->setFont(font);
         line = new QFrame(GrBox_Valores);
-        line->setObjectName(QStringLiteral("line"));
-        line->setGeometry(QRect(170, 0, 16, 381));
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setGeometry(QRect(180, 40, 20, 581));
         line->setFrameShape(QFrame::VLine);
         line->setFrameShadow(QFrame::Sunken);
+        line_2 = new QFrame(GrBox_Valores);
+        line_2->setObjectName(QString::fromUtf8("line_2"));
+        line_2->setGeometry(QRect(10, 190, 161, 16));
+        line_2->setFrameShape(QFrame::HLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+        line_3 = new QFrame(GrBox_Valores);
+        line_3->setObjectName(QString::fromUtf8("line_3"));
+        line_3->setGeometry(QRect(10, 360, 161, 16));
+        line_3->setFrameShape(QFrame::HLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+        line_4 = new QFrame(GrBox_Valores);
+        line_4->setObjectName(QString::fromUtf8("line_4"));
+        line_4->setGeometry(QRect(210, 190, 161, 16));
+        line_4->setFrameShape(QFrame::HLine);
+        line_4->setFrameShadow(QFrame::Sunken);
+        line_5 = new QFrame(GrBox_Valores);
+        line_5->setObjectName(QString::fromUtf8("line_5"));
+        line_5->setGeometry(QRect(210, 360, 161, 16));
+        line_5->setFrameShape(QFrame::HLine);
+        line_5->setFrameShadow(QFrame::Sunken);
+        line_6 = new QFrame(GrBox_Valores);
+        line_6->setObjectName(QString::fromUtf8("line_6"));
+        line_6->setGeometry(QRect(370, 40, 20, 581));
+        line_6->setFrameShape(QFrame::VLine);
+        line_6->setFrameShadow(QFrame::Sunken);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1025, 23));
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 1045, 21));
         menuArquivo = new QMenu(menuBar);
-        menuArquivo->setObjectName(QStringLiteral("menuArquivo"));
+        menuArquivo->setObjectName(QString::fromUtf8("menuArquivo"));
         menuAjuda = new QMenu(menuBar);
-        menuAjuda->setObjectName(QStringLiteral("menuAjuda"));
+        menuAjuda->setObjectName(QString::fromUtf8("menuAjuda"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
+        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
         MainWindow->addToolBar(Qt::LeftToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
+        statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuArquivo->menuAction());
@@ -402,89 +461,82 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "CIBLAB - Compila\303\247\303\243o de Dados Laborat\303\263rio", Q_NULLPTR));
-        actionSair->setText(QApplication::translate("MainWindow", "Sair", Q_NULLPTR));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "CIBLAB - Compila\303\247\303\243o de Dados Laborat\303\263rio", nullptr));
+        actionSair->setText(QCoreApplication::translate("MainWindow", "Sair", nullptr));
         GrBox_Classificacao->setTitle(QString());
-        Lbl_DataIncubacao->setText(QApplication::translate("MainWindow", "Data de incuba\303\247\303\243o", Q_NULLPTR));
-        Lbl_Protocolo->setText(QApplication::translate("MainWindow", "Protocolo", Q_NULLPTR));
-        Lbl_Mercado->setText(QApplication::translate("MainWindow", "Mercado", Q_NULLPTR));
-        CmB_Mercado->clear();
-        CmB_Mercado->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "AgroInd\303\272stria", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Cultura energ\303\251tica", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Garantia de qualidade", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Ind\303\272stria", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Res\303\255duo urbano", Q_NULLPTR)
-        );
-        Lbl_OrigemMateriaPrima->setText(QApplication::translate("MainWindow", "Origem da Mat\303\251ria Prima", Q_NULLPTR));
-        Lbl_Setor->setText(QApplication::translate("MainWindow", "Setor", Q_NULLPTR));
-        Lbl_AmostraFase->setText(QApplication::translate("MainWindow", "Amostra/fase", Q_NULLPTR));
-        Lbl_PontoColeta->setText(QApplication::translate("MainWindow", "Ponto de Coleta", Q_NULLPTR));
-        Lbl_InformacaoComplementar->setText(QApplication::translate("MainWindow", "Informa\303\247\303\265es Complementares", Q_NULLPTR));
-        CmB_OrigemMateriaPrima->clear();
-        CmB_OrigemMateriaPrima->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Codigest\303\243o", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Cultivo energ\303\251tico", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Padr\303\243o", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Res\303\255duo de tratamento de esgoto", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Res\303\255duos alimentares", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Res\303\255duo da ind\303\272stria agropecu\303\241ria", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Res\303\255duo da industria de biocombustiveis", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Res\303\255duos da produ\303\247\303\243o de a\303\247\303\272car, am\303\255do e produtos secund\303\241rios", Q_NULLPTR)
-        );
-        CmB_Setor->clear();
-        CmB_Setor->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Abatedouro de aves", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Alga", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Alho", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Amidonaria", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Avicultura", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Biomassa vegetal", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Bovinocultura", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Carne", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Cebola", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Efluente industrial", Q_NULLPTR)
-        );
-        CmB_AmostraFase->clear();
-        CmB_AmostraFase->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "\303\201gua residual", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Algas decantadas", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Algas floculadas", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Alho", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Amido de Mandioca", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Amostra s\303\263lida", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Amostra suco", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Armazenamento", Q_NULLPTR)
-        );
+        Lbl_DataIncubacao->setText(QCoreApplication::translate("MainWindow", "Data de incuba\303\247\303\243o", nullptr));
+        Lbl_Protocolo->setText(QCoreApplication::translate("MainWindow", "Protocolo", nullptr));
+        Lbl_Mercado->setText(QCoreApplication::translate("MainWindow", "Mercado", nullptr));
+        CmB_Mercado->setItemText(0, QCoreApplication::translate("MainWindow", "AgroInd\303\272stria", nullptr));
+        CmB_Mercado->setItemText(1, QCoreApplication::translate("MainWindow", "Cultura energ\303\251tica", nullptr));
+        CmB_Mercado->setItemText(2, QCoreApplication::translate("MainWindow", "Garantia de qualidade", nullptr));
+        CmB_Mercado->setItemText(3, QCoreApplication::translate("MainWindow", "Ind\303\272stria", nullptr));
+        CmB_Mercado->setItemText(4, QCoreApplication::translate("MainWindow", "Res\303\255duo urbano", nullptr));
+
+        Lbl_OrigemMateriaPrima->setText(QCoreApplication::translate("MainWindow", "Origem da Mat\303\251ria Prima", nullptr));
+        Lbl_Setor->setText(QCoreApplication::translate("MainWindow", "Setor", nullptr));
+        Lbl_AmostraFase->setText(QCoreApplication::translate("MainWindow", "Amostra/fase", nullptr));
+        Lbl_PontoColeta->setText(QCoreApplication::translate("MainWindow", "Ponto de Coleta", nullptr));
+        Lbl_InformacaoComplementar->setText(QCoreApplication::translate("MainWindow", "Informa\303\247\303\265es Complementares", nullptr));
+        CmB_OrigemMateriaPrima->setItemText(0, QCoreApplication::translate("MainWindow", "Codigest\303\243o", nullptr));
+        CmB_OrigemMateriaPrima->setItemText(1, QCoreApplication::translate("MainWindow", "Cultivo energ\303\251tico", nullptr));
+        CmB_OrigemMateriaPrima->setItemText(2, QCoreApplication::translate("MainWindow", "Padr\303\243o", nullptr));
+        CmB_OrigemMateriaPrima->setItemText(3, QCoreApplication::translate("MainWindow", "Res\303\255duo de tratamento de esgoto", nullptr));
+        CmB_OrigemMateriaPrima->setItemText(4, QCoreApplication::translate("MainWindow", "Res\303\255duos alimentares", nullptr));
+        CmB_OrigemMateriaPrima->setItemText(5, QCoreApplication::translate("MainWindow", "Res\303\255duo da ind\303\272stria agropecu\303\241ria", nullptr));
+        CmB_OrigemMateriaPrima->setItemText(6, QCoreApplication::translate("MainWindow", "Res\303\255duo da industria de biocombustiveis", nullptr));
+        CmB_OrigemMateriaPrima->setItemText(7, QCoreApplication::translate("MainWindow", "Res\303\255duos da produ\303\247\303\243o de a\303\247\303\272car, am\303\255do e produtos secund\303\241rios", nullptr));
+
+        CmB_Setor->setItemText(0, QCoreApplication::translate("MainWindow", "Abatedouro de aves", nullptr));
+        CmB_Setor->setItemText(1, QCoreApplication::translate("MainWindow", "Alga", nullptr));
+        CmB_Setor->setItemText(2, QCoreApplication::translate("MainWindow", "Alho", nullptr));
+        CmB_Setor->setItemText(3, QCoreApplication::translate("MainWindow", "Amidonaria", nullptr));
+        CmB_Setor->setItemText(4, QCoreApplication::translate("MainWindow", "Avicultura", nullptr));
+        CmB_Setor->setItemText(5, QCoreApplication::translate("MainWindow", "Biomassa vegetal", nullptr));
+        CmB_Setor->setItemText(6, QCoreApplication::translate("MainWindow", "Bovinocultura", nullptr));
+        CmB_Setor->setItemText(7, QCoreApplication::translate("MainWindow", "Carne", nullptr));
+        CmB_Setor->setItemText(8, QCoreApplication::translate("MainWindow", "Cebola", nullptr));
+        CmB_Setor->setItemText(9, QCoreApplication::translate("MainWindow", "Efluente industrial", nullptr));
+
+        CmB_AmostraFase->setItemText(0, QCoreApplication::translate("MainWindow", "\303\201gua residual", nullptr));
+        CmB_AmostraFase->setItemText(1, QCoreApplication::translate("MainWindow", "Algas decantadas", nullptr));
+        CmB_AmostraFase->setItemText(2, QCoreApplication::translate("MainWindow", "Algas floculadas", nullptr));
+        CmB_AmostraFase->setItemText(3, QCoreApplication::translate("MainWindow", "Alho", nullptr));
+        CmB_AmostraFase->setItemText(4, QCoreApplication::translate("MainWindow", "Amido de Mandioca", nullptr));
+        CmB_AmostraFase->setItemText(5, QCoreApplication::translate("MainWindow", "Amostra s\303\263lida", nullptr));
+        CmB_AmostraFase->setItemText(6, QCoreApplication::translate("MainWindow", "Amostra suco", nullptr));
+        CmB_AmostraFase->setItemText(7, QCoreApplication::translate("MainWindow", "Armazenamento", nullptr));
+
+        Lbl_Procedencia->setText(QCoreApplication::translate("MainWindow", "Proced\303\252ncia", nullptr));
+        CmB_Procedencia->setItemText(0, QCoreApplication::translate("MainWindow", "Laborat\303\263rio", nullptr));
+
         groupBox->setTitle(QString());
-        Btn_Salvar->setText(QApplication::translate("MainWindow", "Salvar", Q_NULLPTR));
+        Btn_Salvar->setText(QCoreApplication::translate("MainWindow", "Salvar", nullptr));
         GrBox_Valores->setTitle(QString());
-        Lbl_Biogas->setText(QApplication::translate("MainWindow", "Biog\303\241s (LNbiog\303\241s.kg sv\302\271)", Q_NULLPTR));
-        Lbl_AmostraBiogas1->setText(QApplication::translate("MainWindow", "Amostra 1", Q_NULLPTR));
-        Lbl_Metano->setText(QApplication::translate("MainWindow", "Metano (LNbiog\303\241s.kg sv\302\271)", Q_NULLPTR));
-        Lbl_ST->setText(QApplication::translate("MainWindow", "ST (%)", Q_NULLPTR));
-        Lbl_SV1->setText(QApplication::translate("MainWindow", "SV (%)", Q_NULLPTR));
-        Lbl_SF->setText(QApplication::translate("MainWindow", "SF (%)", Q_NULLPTR));
-        Lbl_DQO->setText(QApplication::translate("MainWindow", "DQO (mg de O2/L) (%)", Q_NULLPTR));
-        Lbl_pH->setText(QApplication::translate("MainWindow", "pH", Q_NULLPTR));
-        CB_Amostra2->setText(QApplication::translate("MainWindow", "Amostra 2", Q_NULLPTR));
-        CB_Amostra3->setText(QApplication::translate("MainWindow", "Amostra 3", Q_NULLPTR));
-        Lbl_DQO_2->setText(QApplication::translate("MainWindow", "DQO (mg de O2/L) (%)", Q_NULLPTR));
-        Lbl_SV1_2->setText(QApplication::translate("MainWindow", "SV (%)", Q_NULLPTR));
-        Lbl_Metano_2->setText(QApplication::translate("MainWindow", "Metano (LNbiog\303\241s.kg sv\302\271)", Q_NULLPTR));
-        Lbl_SF_2->setText(QApplication::translate("MainWindow", "SF (%)", Q_NULLPTR));
-        Lbl_ST_2->setText(QApplication::translate("MainWindow", "ST (%)", Q_NULLPTR));
-        Lbl_Biogas_2->setText(QApplication::translate("MainWindow", "Biog\303\241s (LNbiog\303\241s.kg sv\302\271)", Q_NULLPTR));
-        Lbl_pH_2->setText(QApplication::translate("MainWindow", "pH", Q_NULLPTR));
-        Lbl_Metano_3->setText(QApplication::translate("MainWindow", "Metano (LNbiog\303\241s.kg sv\302\271)", Q_NULLPTR));
-        Lbl_SV1_3->setText(QApplication::translate("MainWindow", "SV (%)", Q_NULLPTR));
-        Lbl_DQO_3->setText(QApplication::translate("MainWindow", "DQO (mg de O2/L) (%)", Q_NULLPTR));
-        Lbl_SF_3->setText(QApplication::translate("MainWindow", "SF (%)", Q_NULLPTR));
-        Lbl_ST_3->setText(QApplication::translate("MainWindow", "ST (%)", Q_NULLPTR));
-        Lbl_Biogas_3->setText(QApplication::translate("MainWindow", "Biog\303\241s (LNbiog\303\241s.kg sv\302\271)", Q_NULLPTR));
-        Lbl_pH_3->setText(QApplication::translate("MainWindow", "pH", Q_NULLPTR));
-        menuArquivo->setTitle(QApplication::translate("MainWindow", "Arquivo", Q_NULLPTR));
-        menuAjuda->setTitle(QApplication::translate("MainWindow", "Ajuda", Q_NULLPTR));
+        Lbl_Biogas->setText(QCoreApplication::translate("MainWindow", "Biog\303\241s 1 (LNbiog\303\241s.kg sv\302\271)", nullptr));
+        Lbl_AmostraBiogas1->setText(QCoreApplication::translate("MainWindow", "Amostras", nullptr));
+        Lbl_Metano->setText(QCoreApplication::translate("MainWindow", "Metano 1 (LNbiog\303\241s.kg sv\302\271)", nullptr));
+        Lbl_ST->setText(QCoreApplication::translate("MainWindow", "ST 1 (%)", nullptr));
+        Lbl_SV1->setText(QCoreApplication::translate("MainWindow", "SV 1 (%)", nullptr));
+        Lbl_SF->setText(QCoreApplication::translate("MainWindow", "SF 1 (%)", nullptr));
+        Lbl_DQO->setText(QCoreApplication::translate("MainWindow", "DQO 1 (mg de O2/L) (%)", nullptr));
+        Lbl_pH->setText(QCoreApplication::translate("MainWindow", "pH 1", nullptr));
+        Lbl_DQO_2->setText(QCoreApplication::translate("MainWindow", "DQO 2 (mg de O2/L) (%)", nullptr));
+        Lbl_SV1_2->setText(QCoreApplication::translate("MainWindow", "SV 2 (%)", nullptr));
+        Lbl_Metano_2->setText(QCoreApplication::translate("MainWindow", "Metano 2 (LNbiog\303\241s.kg sv\302\271)", nullptr));
+        Lbl_SF_2->setText(QCoreApplication::translate("MainWindow", "SF 2 (%)", nullptr));
+        Lbl_ST_2->setText(QCoreApplication::translate("MainWindow", "ST 2 (%)", nullptr));
+        Lbl_Biogas_2->setText(QCoreApplication::translate("MainWindow", "Biog\303\241s 2 (LNbiog\303\241s.kg sv\302\271)", nullptr));
+        Lbl_pH_2->setText(QCoreApplication::translate("MainWindow", "pH 2", nullptr));
+        Lbl_Metano_3->setText(QCoreApplication::translate("MainWindow", "Metano 3 (LNbiog\303\241s.kg sv\302\271)", nullptr));
+        Lbl_SV1_3->setText(QCoreApplication::translate("MainWindow", "SV 3 (%)", nullptr));
+        Lbl_DQO_3->setText(QCoreApplication::translate("MainWindow", "DQO 3 (mg de O2/L) (%)", nullptr));
+        Lbl_SF_3->setText(QCoreApplication::translate("MainWindow", "SF 3 (%)", nullptr));
+        Lbl_ST_3->setText(QCoreApplication::translate("MainWindow", "ST 3 (%)", nullptr));
+        Lbl_Biogas_3->setText(QCoreApplication::translate("MainWindow", "Biog\303\241s 3 (LNbiog\303\241s.kg sv\302\271)", nullptr));
+        Lbl_pH_3->setText(QCoreApplication::translate("MainWindow", "pH 3", nullptr));
+        menuArquivo->setTitle(QCoreApplication::translate("MainWindow", "Arquivo", nullptr));
+        menuAjuda->setTitle(QCoreApplication::translate("MainWindow", "Ajuda", nullptr));
     } // retranslateUi
 
 };

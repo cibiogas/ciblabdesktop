@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 
     if (!xlsxR.load()) // load excel file
     {
+        xlsxR.selectSheet("Sheet1");
 
         Cell* header = xlsxR.cellAt(1, 1); // get cell pointer.
 

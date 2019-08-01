@@ -1,6 +1,7 @@
 #include <QDir>
 #include <QDebug>
 #include <QMessageBox>
+#include <string>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -20,35 +21,35 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
 
-    ui->CB_Amostra3->setEnabled(false);
+    //ui->CB_Amostra3->setEnabled(false);
 
     //Edt Biogas
-    ui->Edt_Biogas2->setEnabled(false);
-    ui->Edt_Biogas3->setEnabled(false);
+    //ui->Edt_Biogas2->setEnabled(false);
+    //ui->Edt_Biogas3->setEnabled(false);
 
     //Edt Metano
-    ui->Edt_Metano2->setEnabled(false);
-    ui->Edt_Metano3->setEnabled(false);
+    //ui->Edt_Metano2->setEnabled(false);
+    //ui->Edt_Metano3->setEnabled(false);
 
     //Edt ST
-    ui->Edt_ST2->setEnabled(false);
-    ui->Edt_ST3->setEnabled(false);
+    //ui->Edt_ST2->setEnabled(false);
+    //ui->Edt_ST3->setEnabled(false);
 
     //Edt SV
-    ui->Edt_SV2->setEnabled(false);
-    ui->Edt_SV3->setEnabled(false);
+    //ui->Edt_SV2->setEnabled(false);
+    //ui->Edt_SV3->setEnabled(false);
 
     //Edt SF
-    ui->Edt_SF2->setEnabled(false);
-    ui->Edt_SF3->setEnabled(false);
+    //ui->Edt_SF2->setEnabled(false);
+    //ui->Edt_SF3->setEnabled(false);
 
     //Edt DQO
-    ui->Edt_DQO2->setEnabled(false);
-    ui->Edt_DQO3->setEnabled(false);
+    //ui->Edt_DQO2->setEnabled(false);
+    //ui->Edt_DQO3->setEnabled(false);
 
     //Edt pH
-    ui->Edt_pH2->setEnabled(false);
-    ui->Edt_pH3->setEnabled(false);
+    //ui->Edt_pH2->setEnabled(false);
+    //ui->Edt_pH3->setEnabled(false);
 
     //Validadores para numeros
     ui->Edt_Biogas1->setValidator(new QIntValidator(0, 10000000, this));
@@ -89,9 +90,48 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Btn_Salvar_clicked()
 {
+
+    //Merge de Celulas
+    Format formato;
+    formato.setHorizontalAlignment(Format::AlignHCenter);
+    formato.setVerticalAlignment(Format::AlignVCenter);
+
+    //Formulas
+
+    //BIOGAS
+    //QString MAXIMABIOGAS = "=MÁXIMO(J2:J4)";
+    //QString MINIMOBIOGAS = "=MÍNIMO(J2:J4)";
+    //QString CRITERIOLNBIOGAS = "=SE(A2=0;"";(K2-K3)/K3)";
+    QString MEDIALNBIOGAS = "=MÉDIA(J2:J4)";
+
+    //METANO
+    QString MAXIMAMETANO = "=MÁXIMO(N5:N7)";
+    QString MINIMOMETANO = "=MÍNIMO(N5:N7)";
+    QString CRITERIOMETANO = "=SE(A2=0;"";(O2-O3)/O3)";
+    QString MEDIAMETANO = "=SE(N5="";"";MÉDIA(N5:N7))";
+    QString PORCENTAGEMMETANOBIOGAS = "=SE(Q5="";"";Q5/M5)";
+
+    //Solidos TOTAIS - ST
+    QString MEDIASOLIDOST = "=MÉDIA(S2:S4)*10";
+    QString CRITERIOSOLIDOSST = "=((MAIOR(S2:S4;1))-(MENOR(S2:S4;1)))/(((MAIOR(S2:S4;1))+(MENOR(S2:S4;1)))/2)*100";
+
+    //Solidos VOLATEIS - SV
+    QString MEDIASOLIDOSV = "=MÉDIA(V2:V4)*10";
+    QString CRITERIOSOLIDOSSV = "=((MAIOR(V2:V4;1))-(MENOR(V2:V4;1)))/(((MAIOR(V2:V4;1))+(MENOR(V2:V4;1)))/2)*100";
+
+    //SF
+    QString SF = "=100-V2";
+
+    //DQO
+    QString MEDIADQO = "=SE(Z2="";"";MÉDIA(Z2:Z4))";
+
+    //PH
+    QString MEDIAPH = "=SE(AB2="";"";MÉDIA(AB2:AB4))";
+
     //Valores do Form
     QString data_incubacao = ui->Edt_DataIncubacao->text();
     QString protocolo = ui->Edt_Protocolo->text();
+    QString procedencia = ui->CmB_Procedencia->currentText();
     QString mercado = ui->CmB_Mercado->currentText();
     QString origem = ui->CmB_OrigemMateriaPrima->currentText();
     QString setor = ui->CmB_Setor->currentText();
@@ -131,48 +171,97 @@ void MainWindow::on_Btn_Salvar_clicked()
     Document xlsxR("Laboratorio.xlsx");
     if ( xlsxR.load() ) // load excel file
     {
+        xlsxR.selectSheet("Sheet1");
 
-        //criar estrutura de repetição para mudar a linha
+        // criar estrutura de repetição para mudar a linha
         int row = 2;
         int col = 3;
-        Cell* cell = xlsxR.cellAt(row, col); // get cell pointer.
 
-        //Verificar
+        // get cell pointer
+        Cell* cell = xlsxR.cellAt(row, col);
+
+        // verificar se a linha nao estiver vazia
         while(cell) {
             row++;
             cell = xlsxR.cellAt(row, col);
         }
 
+        //auxiliar para merge de celulas
+        int linhaInicial = row;
+        int linhaFinal = row + 2;
+
         //se a celula for igual a nula escrevemos uma nova linha
         //linha e coluna
         xlsxR.write(row,1, data_incubacao); // write to cell(row,col).
+        xlsxR.mergeCells(QString("A%1").arg(linhaInicial) + ":" + QString("A%1").arg(linhaFinal), formato);
+
         xlsxR.write(row,2, protocolo);
-        xlsxR.write(row,3, mercado);
-        xlsxR.write(row,4, origem);
-        xlsxR.write(row,5, setor);
-        xlsxR.write(row,6, amostra);
-        xlsxR.write(row,7, pontoColeta);
-        xlsxR.write(row,8, informacao);
+        xlsxR.mergeCells(QString("B%1").arg(linhaInicial) + ":" + QString("B%1").arg(linhaFinal), formato);
 
-        xlsxR.write(row,9, biogas1);
-        xlsxR.write(row,10, biogas2);
-        xlsxR.write(row,11, biogas3);
+        xlsxR.write(row,3, procedencia);
+        xlsxR.mergeCells(QString("C%1").arg(linhaInicial) + ":" + QString("C%1").arg(linhaFinal), formato);
 
-        xlsxR.write(row,12, metano1);
-        xlsxR.write(row,13, metano2);
-        xlsxR.write(row,14, metano3);
+        xlsxR.write(row,4, mercado);
+        xlsxR.mergeCells(QString("D%1").arg(linhaInicial) + ":" + QString("D%1").arg(linhaFinal), formato);
 
-        xlsxR.write(row,15, st1);
-        xlsxR.write(row,16, st2);
-        xlsxR.write(row,17, st3);
+        xlsxR.write(row,5, origem);
+        xlsxR.mergeCells(QString("E%1").arg(linhaInicial) + ":" + QString("E%1").arg(linhaFinal), formato);
 
-        xlsxR.write(row,18, dqo1);
-        xlsxR.write(row,19, dqo2);
-        xlsxR.write(row,20, dqo3);
+        xlsxR.write(row,6, setor);
+        xlsxR.mergeCells(QString("F%1").arg(linhaInicial) + ":" + QString("F%1").arg(linhaFinal), formato);
 
-        xlsxR.write(row,21, ph1);
-        xlsxR.write(row,22, ph2);
-        xlsxR.write(row,23, ph3);
+        xlsxR.write(row,7, amostra);
+        xlsxR.mergeCells(QString("G%1").arg(linhaInicial) + ":" + QString("G%1").arg(linhaFinal), formato);
+
+        xlsxR.write(row,8, pontoColeta);
+        xlsxR.mergeCells(QString("H%1").arg(linhaInicial) + ":" + QString("H%1").arg(linhaFinal), formato);
+
+        xlsxR.write(row,9, informacao);
+        xlsxR.mergeCells(QString("I%1").arg(linhaInicial) + ":" + QString("I%1").arg(linhaFinal), formato);
+
+        //Escrever 3 amostras na mesma coluna e em linhas diferentes
+        //Coluna 10 - Biogas
+        xlsxR.write(row,10, biogas1);
+        xlsxR.write(row+1,10, biogas2);
+        xlsxR.write(row+2,10, biogas3);
+
+        QString LINHAS = QString("J%1").arg(linhaInicial) + ":" + QString("J%1").arg(linhaFinal);
+
+        //Formulas Biogas
+        xlsxR.write(row,11, "=MAXIMO("+ LINHAS +")");
+        xlsxR.write(row+1,11, "=MÍNIMO("+ LINHAS +")");
+        xlsxR.write(row,12, "=SE(A2=0;"";(K2-K3)/K3)");
+        xlsxR.write(row,13, "=MÉDIA(J2:J4)");
+
+        //Coluna 14 - Metano
+        xlsxR.write(row,14, metano1);
+        xlsxR.write(row+1,14, metano2);
+        xlsxR.write(row+2,14, metano3);
+
+        //Coluna 19 - ST
+        xlsxR.write(row,19, st1);
+        xlsxR.write(row+1,19, st2);
+        xlsxR.write(row+2,19, st3);
+
+        //Coluna 22 - SV
+        xlsxR.write(row,22, sv1);
+        xlsxR.write(row+1,22, sv2);
+        xlsxR.write(row+2,22, sv3);
+
+        //Coluna 26 - DQO
+        xlsxR.write(row,26, dqo1);
+        xlsxR.write(row+1,26, dqo2);
+        xlsxR.write(row+2,26, dqo3);
+
+        //Coluna 28 - PH
+        xlsxR.write(row,28, ph1);
+        xlsxR.write(row+1,28, ph2);
+        xlsxR.write(row+2,28, ph3);
+
+        //Formatar linhas com textos centralizados
+        xlsxR.setRowFormat(row, formato);
+        xlsxR.setRowFormat(row+1, formato);
+        xlsxR.setRowFormat(row+2, formato);
 
         xlsxR.save();
 
@@ -236,7 +325,7 @@ void MainWindow::on_CB_Amostra2_stateChanged(int arg1)
      qDebug() << arg1;
 
      if (arg1 == 2) {
-         ui->CB_Amostra3->setEnabled(true);
+         //ui->CB_Amostra3->setEnabled(true);
 
          //Edt Biogas
          ui->Edt_Biogas2->setEnabled(true);
@@ -264,8 +353,8 @@ void MainWindow::on_CB_Amostra2_stateChanged(int arg1)
      if (arg1 == 0) {
 
          //ComboBox Amostra3
-         ui->CB_Amostra3->setChecked(false);
-         ui->CB_Amostra3->setEnabled(false);
+         //ui->CB_Amostra3->setChecked(false);
+         //ui->CB_Amostra3->setEnabled(false);
 
          //Edt Biogas
          ui->Edt_Biogas2->setEnabled(false);

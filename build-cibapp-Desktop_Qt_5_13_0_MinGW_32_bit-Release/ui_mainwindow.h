@@ -52,6 +52,8 @@ public:
     QComboBox *CmB_OrigemMateriaPrima;
     QComboBox *CmB_Setor;
     QComboBox *CmB_AmostraFase;
+    QLabel *Lbl_Procedencia;
+    QComboBox *CmB_Procedencia;
     QGroupBox *groupBox;
     QPushButton *Btn_Salvar;
     QGroupBox *GrBox_Valores;
@@ -112,7 +114,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->setWindowModality(Qt::NonModal);
-        MainWindow->resize(1035, 626);
+        MainWindow->resize(1040, 728);
         MainWindow->setAutoFillBackground(false);
         MainWindow->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
 "    background-color: #e1e1e1;\n"
@@ -123,7 +125,7 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         GrBox_Classificacao = new QGroupBox(centralWidget);
         GrBox_Classificacao->setObjectName(QString::fromUtf8("GrBox_Classificacao"));
-        GrBox_Classificacao->setGeometry(QRect(0, 0, 471, 521));
+        GrBox_Classificacao->setGeometry(QRect(0, 0, 471, 621));
         GrBox_Classificacao->setAutoFillBackground(false);
         Lbl_DataIncubacao = new QLabel(GrBox_Classificacao);
         Lbl_DataIncubacao->setObjectName(QString::fromUtf8("Lbl_DataIncubacao"));
@@ -144,7 +146,7 @@ public:
         Edt_Protocolo->setGeometry(QRect(10, 90, 151, 31));
         Lbl_Mercado = new QLabel(GrBox_Classificacao);
         Lbl_Mercado->setObjectName(QString::fromUtf8("Lbl_Mercado"));
-        Lbl_Mercado->setGeometry(QRect(10, 130, 111, 17));
+        Lbl_Mercado->setGeometry(QRect(10, 200, 111, 17));
         Lbl_Mercado->setFont(font);
         CmB_Mercado = new QComboBox(GrBox_Classificacao);
         CmB_Mercado->addItem(QString());
@@ -153,33 +155,33 @@ public:
         CmB_Mercado->addItem(QString());
         CmB_Mercado->addItem(QString());
         CmB_Mercado->setObjectName(QString::fromUtf8("CmB_Mercado"));
-        CmB_Mercado->setGeometry(QRect(10, 150, 171, 25));
+        CmB_Mercado->setGeometry(QRect(10, 220, 171, 25));
         Lbl_OrigemMateriaPrima = new QLabel(GrBox_Classificacao);
         Lbl_OrigemMateriaPrima->setObjectName(QString::fromUtf8("Lbl_OrigemMateriaPrima"));
-        Lbl_OrigemMateriaPrima->setGeometry(QRect(10, 190, 191, 17));
+        Lbl_OrigemMateriaPrima->setGeometry(QRect(10, 260, 191, 17));
         Lbl_OrigemMateriaPrima->setFont(font);
         Lbl_Setor = new QLabel(GrBox_Classificacao);
         Lbl_Setor->setObjectName(QString::fromUtf8("Lbl_Setor"));
-        Lbl_Setor->setGeometry(QRect(10, 250, 41, 17));
+        Lbl_Setor->setGeometry(QRect(10, 320, 41, 17));
         Lbl_Setor->setFont(font);
         Lbl_AmostraFase = new QLabel(GrBox_Classificacao);
         Lbl_AmostraFase->setObjectName(QString::fromUtf8("Lbl_AmostraFase"));
-        Lbl_AmostraFase->setGeometry(QRect(10, 310, 111, 17));
+        Lbl_AmostraFase->setGeometry(QRect(10, 380, 111, 17));
         Lbl_AmostraFase->setFont(font);
         Lbl_PontoColeta = new QLabel(GrBox_Classificacao);
         Lbl_PontoColeta->setObjectName(QString::fromUtf8("Lbl_PontoColeta"));
-        Lbl_PontoColeta->setGeometry(QRect(10, 370, 151, 17));
+        Lbl_PontoColeta->setGeometry(QRect(10, 440, 151, 17));
         Lbl_PontoColeta->setFont(font);
         Edt_PontoColeta = new QLineEdit(GrBox_Classificacao);
         Edt_PontoColeta->setObjectName(QString::fromUtf8("Edt_PontoColeta"));
-        Edt_PontoColeta->setGeometry(QRect(10, 390, 401, 29));
+        Edt_PontoColeta->setGeometry(QRect(10, 460, 401, 29));
         Lbl_InformacaoComplementar = new QLabel(GrBox_Classificacao);
         Lbl_InformacaoComplementar->setObjectName(QString::fromUtf8("Lbl_InformacaoComplementar"));
-        Lbl_InformacaoComplementar->setGeometry(QRect(10, 430, 221, 17));
+        Lbl_InformacaoComplementar->setGeometry(QRect(10, 510, 221, 17));
         Lbl_InformacaoComplementar->setFont(font);
         EdtText_InformacoesComplementares = new QTextEdit(GrBox_Classificacao);
         EdtText_InformacoesComplementares->setObjectName(QString::fromUtf8("EdtText_InformacoesComplementares"));
-        EdtText_InformacoesComplementares->setGeometry(QRect(10, 450, 451, 64));
+        EdtText_InformacoesComplementares->setGeometry(QRect(10, 530, 451, 64));
         EdtText_InformacoesComplementares->setAutoFillBackground(false);
         EdtText_InformacoesComplementares->setAcceptRichText(true);
         CmB_OrigemMateriaPrima = new QComboBox(GrBox_Classificacao);
@@ -192,7 +194,7 @@ public:
         CmB_OrigemMateriaPrima->addItem(QString());
         CmB_OrigemMateriaPrima->addItem(QString());
         CmB_OrigemMateriaPrima->setObjectName(QString::fromUtf8("CmB_OrigemMateriaPrima"));
-        CmB_OrigemMateriaPrima->setGeometry(QRect(10, 210, 261, 25));
+        CmB_OrigemMateriaPrima->setGeometry(QRect(10, 280, 261, 25));
         CmB_Setor = new QComboBox(GrBox_Classificacao);
         CmB_Setor->addItem(QString());
         CmB_Setor->addItem(QString());
@@ -205,7 +207,7 @@ public:
         CmB_Setor->addItem(QString());
         CmB_Setor->addItem(QString());
         CmB_Setor->setObjectName(QString::fromUtf8("CmB_Setor"));
-        CmB_Setor->setGeometry(QRect(10, 270, 261, 25));
+        CmB_Setor->setGeometry(QRect(10, 340, 261, 25));
         CmB_AmostraFase = new QComboBox(GrBox_Classificacao);
         CmB_AmostraFase->addItem(QString());
         CmB_AmostraFase->addItem(QString());
@@ -216,16 +218,24 @@ public:
         CmB_AmostraFase->addItem(QString());
         CmB_AmostraFase->addItem(QString());
         CmB_AmostraFase->setObjectName(QString::fromUtf8("CmB_AmostraFase"));
-        CmB_AmostraFase->setGeometry(QRect(10, 330, 261, 25));
+        CmB_AmostraFase->setGeometry(QRect(10, 400, 261, 25));
+        Lbl_Procedencia = new QLabel(GrBox_Classificacao);
+        Lbl_Procedencia->setObjectName(QString::fromUtf8("Lbl_Procedencia"));
+        Lbl_Procedencia->setGeometry(QRect(10, 140, 111, 10));
+        Lbl_Procedencia->setFont(font);
+        CmB_Procedencia = new QComboBox(GrBox_Classificacao);
+        CmB_Procedencia->addItem(QString());
+        CmB_Procedencia->setObjectName(QString::fromUtf8("CmB_Procedencia"));
+        CmB_Procedencia->setGeometry(QRect(10, 160, 171, 25));
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(0, 530, 1021, 51));
+        groupBox->setGeometry(QRect(0, 630, 1021, 51));
         Btn_Salvar = new QPushButton(groupBox);
         Btn_Salvar->setObjectName(QString::fromUtf8("Btn_Salvar"));
         Btn_Salvar->setGeometry(QRect(910, 10, 87, 29));
         GrBox_Valores = new QGroupBox(centralWidget);
         GrBox_Valores->setObjectName(QString::fromUtf8("GrBox_Valores"));
-        GrBox_Valores->setGeometry(QRect(480, 0, 541, 521));
+        GrBox_Valores->setGeometry(QRect(480, 0, 541, 621));
         GrBox_Valores->setAutoFillBackground(false);
         Lbl_Biogas = new QLabel(GrBox_Valores);
         Lbl_Biogas->setObjectName(QString::fromUtf8("Lbl_Biogas"));
@@ -408,7 +418,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1035, 21));
+        menuBar->setGeometry(QRect(0, 0, 1040, 21));
         menuArquivo = new QMenu(menuBar);
         menuArquivo->setObjectName(QString::fromUtf8("menuArquivo"));
         menuAjuda = new QMenu(menuBar);
@@ -477,6 +487,9 @@ public:
         CmB_AmostraFase->setItemText(5, QCoreApplication::translate("MainWindow", "Amostra s\303\263lida", nullptr));
         CmB_AmostraFase->setItemText(6, QCoreApplication::translate("MainWindow", "Amostra suco", nullptr));
         CmB_AmostraFase->setItemText(7, QCoreApplication::translate("MainWindow", "Armazenamento", nullptr));
+
+        Lbl_Procedencia->setText(QCoreApplication::translate("MainWindow", "Proced\303\252ncia", nullptr));
+        CmB_Procedencia->setItemText(0, QCoreApplication::translate("MainWindow", "Laborat\303\263rio", nullptr));
 
         groupBox->setTitle(QString());
         Btn_Salvar->setText(QCoreApplication::translate("MainWindow", "Salvar", nullptr));
