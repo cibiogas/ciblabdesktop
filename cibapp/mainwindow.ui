@@ -56,7 +56,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Data de incubação</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Data de incubação*&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QDateEdit" name="Edt_DataIncubacao">
@@ -85,7 +85,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Protocolo</string>
+      <string>Protocolo*</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Protocolo">
@@ -96,6 +96,9 @@
        <width>151</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="text">
+      <string>IN-18/03/19</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_Mercado">
@@ -114,7 +117,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Mercado</string>
+      <string>Mercado*</string>
      </property>
     </widget>
     <widget class="QComboBox" name="CmB_Mercado">
@@ -126,6 +129,11 @@
        <height>25</height>
       </rect>
      </property>
+     <item>
+      <property name="text">
+       <string>--Selecione--</string>
+      </property>
+     </item>
      <item>
       <property name="text">
        <string>AgroIndústria</string>
@@ -168,7 +176,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Origem da Matéria Prima</string>
+      <string>Origem da Matéria Prima*</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_Setor">
@@ -187,7 +195,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Setor</string>
+      <string>Setor*</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_AmostraFase">
@@ -206,7 +214,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Amostra/fase</string>
+      <string>Amostra/fase*</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_PontoColeta">
@@ -236,6 +244,9 @@
        <width>401</width>
        <height>29</height>
       </rect>
+     </property>
+     <property name="text">
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_InformacaoComplementar">
@@ -269,6 +280,13 @@
      <property name="autoFillBackground">
       <bool>false</bool>
      </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
      <property name="acceptRichText">
       <bool>true</bool>
      </property>
@@ -282,6 +300,11 @@
        <height>25</height>
       </rect>
      </property>
+     <item>
+      <property name="text">
+       <string>--Selecione--</string>
+      </property>
+     </item>
      <item>
       <property name="text">
        <string>Codigestão</string>
@@ -332,6 +355,11 @@
        <height>25</height>
       </rect>
      </property>
+     <item>
+      <property name="text">
+       <string>--Selecione--</string>
+      </property>
+     </item>
      <item>
       <property name="text">
        <string>Abatedouro de aves</string>
@@ -394,6 +422,11 @@
      </property>
      <item>
       <property name="text">
+       <string>--Selecione--</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>Água residual</string>
       </property>
      </item>
@@ -449,7 +482,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Procedência</string>
+      <string>Procedência*</string>
      </property>
     </widget>
     <widget class="QComboBox" name="CmB_Procedencia">
@@ -463,6 +496,11 @@
      </property>
      <item>
       <property name="text">
+       <string>--Selecione--</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>Laboratório</string>
       </property>
      </item>
@@ -473,7 +511,7 @@
      <rect>
       <x>0</x>
       <y>630</y>
-      <width>1021</width>
+      <width>1031</width>
       <height>51</height>
      </rect>
     </property>
@@ -483,7 +521,7 @@
     <widget class="QPushButton" name="Btn_Salvar">
      <property name="geometry">
       <rect>
-       <x>910</x>
+       <x>930</x>
        <y>10</y>
        <width>87</width>
        <height>29</height>
@@ -537,6 +575,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="text">
+      <string>61</string>
+     </property>
     </widget>
     <widget class="QLabel" name="Lbl_AmostraBiogas1">
      <property name="geometry">
@@ -569,6 +610,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="text">
+      <string>56</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Biogas3">
      <property name="enabled">
@@ -581,6 +625,9 @@
        <width>161</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="text">
+      <string>59</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Metano3">
@@ -595,6 +642,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="text">
+      <string>321</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Metano2">
      <property name="enabled">
@@ -608,6 +658,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="text">
+      <string>302</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Metano1">
      <property name="geometry">
@@ -617,6 +670,9 @@
        <width>161</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="text">
+      <string>288</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_Metano">
@@ -647,6 +703,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="text">
+      <string>95</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_ST2">
      <property name="enabled">
@@ -660,6 +719,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="text">
+      <string>79</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_ST3">
      <property name="enabled">
@@ -672,6 +734,9 @@
        <width>161</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="text">
+      <string>95</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_ST">
@@ -705,6 +770,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="text">
+      <string>64</string>
+     </property>
     </widget>
     <widget class="QLabel" name="Lbl_SV1">
      <property name="geometry">
@@ -734,6 +802,9 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="text">
+      <string>64</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_SV2">
      <property name="enabled">
@@ -747,8 +818,11 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="text">
+      <string>64</string>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="Edt_SF3">
+    <widget class="QLineEdit" name="Edt_DQO3">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -760,27 +834,11 @@
        <height>21</height>
       </rect>
      </property>
-    </widget>
-    <widget class="QLabel" name="Lbl_SF">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>210</y>
-       <width>151</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
      <property name="text">
-      <string>SF 1 (%)</string>
+      <string>986</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="Edt_SF2">
+    <widget class="QLineEdit" name="Edt_DQO2">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -792,8 +850,11 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="text">
+      <string>456</string>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="Edt_SF1">
+    <widget class="QLineEdit" name="Edt_DQO1">
      <property name="geometry">
       <rect>
        <x>210</x>
@@ -802,48 +863,15 @@
        <height>21</height>
       </rect>
      </property>
-    </widget>
-    <widget class="QLineEdit" name="Edt_DQO3">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>500</y>
-       <width>161</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="Edt_DQO2">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>450</y>
-       <width>161</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="Edt_DQO1">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>400</y>
-       <width>161</width>
-       <height>21</height>
-      </rect>
+     <property name="text">
+      <string>664</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_DQO">
      <property name="geometry">
       <rect>
        <x>210</x>
-       <y>380</y>
+       <y>210</y>
        <width>151</width>
        <height>17</height>
       </rect>
@@ -864,21 +892,27 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>160</y>
-       <width>151</width>
+       <x>210</x>
+       <y>500</y>
+       <width>161</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="text">
+      <string>74</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_pH1">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>60</y>
-       <width>151</width>
+       <x>210</x>
+       <y>400</y>
+       <width>161</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="text">
+      <string>75</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_pH2">
@@ -887,18 +921,21 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>110</y>
-       <width>151</width>
+       <x>210</x>
+       <y>450</y>
+       <width>161</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="text">
+      <string>74</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_pH">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>40</y>
+       <x>210</x>
+       <y>380</y>
        <width>151</width>
        <height>17</height>
       </rect>
@@ -917,7 +954,7 @@
      <property name="geometry">
       <rect>
        <x>210</x>
-       <y>430</y>
+       <y>260</y>
        <width>151</width>
        <height>17</height>
       </rect>
@@ -970,25 +1007,6 @@
       <string>Metano 2 (LNbiogás.kg sv¹)</string>
      </property>
     </widget>
-    <widget class="QLabel" name="Lbl_SF_2">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>260</y>
-       <width>151</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>SF 2 (%)</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="Lbl_ST_2">
      <property name="geometry">
       <rect>
@@ -1030,8 +1048,8 @@
     <widget class="QLabel" name="Lbl_pH_2">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>90</y>
+       <x>210</x>
+       <y>430</y>
        <width>151</width>
        <height>17</height>
       </rect>
@@ -1088,25 +1106,6 @@
      <property name="geometry">
       <rect>
        <x>210</x>
-       <y>480</y>
-       <width>151</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>DQO 3 (mg de O2/L) (%)</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Lbl_SF_3">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
        <y>310</y>
        <width>151</width>
        <height>17</height>
@@ -1119,7 +1118,7 @@
       </font>
      </property>
      <property name="text">
-      <string>SF 3 (%)</string>
+      <string>DQO 3 (mg de O2/L) (%)</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_ST_3">
@@ -1163,8 +1162,8 @@
     <widget class="QLabel" name="Lbl_pH_3">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>140</y>
+       <x>210</x>
+       <y>480</y>
        <width>151</width>
        <height>17</height>
       </rect>

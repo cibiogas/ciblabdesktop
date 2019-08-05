@@ -39,10 +39,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->Edt_SV2->setEnabled(false);
     //ui->Edt_SV3->setEnabled(false);
 
-    //Edt SF
-    //ui->Edt_SF2->setEnabled(false);
-    //ui->Edt_SF3->setEnabled(false);
-
     //Edt DQO
     //ui->Edt_DQO2->setEnabled(false);
     //ui->Edt_DQO3->setEnabled(false);
@@ -67,10 +63,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Edt_SV1->setValidator(new QIntValidator(0, 10000000, this));
     ui->Edt_SV2->setValidator(new QIntValidator(0, 10000000, this));
     ui->Edt_SV3->setValidator(new QIntValidator(0, 10000000, this));
-
-    ui->Edt_SF1->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_SF2->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_SF3->setValidator(new QIntValidator(0, 10000000, this));
 
     ui->Edt_DQO1->setValidator(new QIntValidator(0, 10000000, this));
     ui->Edt_DQO2->setValidator(new QIntValidator(0, 10000000, this));
@@ -144,7 +136,6 @@ void MainWindow::on_Btn_Salvar_clicked()
     QString metano1 = ui->Edt_Metano1->text();
     QString st1 = ui->Edt_ST1->text();
     QString sv1 = ui->Edt_SV1->text();
-    QString sf1 = ui->Edt_SF1->text();
     QString dqo1 = ui->Edt_DQO1->text();
     QString ph1 = ui->Edt_pH1->text();
 
@@ -153,7 +144,6 @@ void MainWindow::on_Btn_Salvar_clicked()
     QString metano2 = ui->Edt_Metano2->text();
     QString st2 = ui->Edt_ST2->text();
     QString sv2 = ui->Edt_SV2->text();
-    QString sf2 = ui->Edt_SF2->text();
     QString dqo2 = ui->Edt_DQO2->text();
     QString ph2 = ui->Edt_pH2->text();
 
@@ -162,7 +152,6 @@ void MainWindow::on_Btn_Salvar_clicked()
     QString metano3 = ui->Edt_Metano3->text();
     QString st3 = ui->Edt_ST3->text();
     QString sv3 = ui->Edt_SV3->text();
-    QString sf3 = ui->Edt_SF3->text();
     QString dqo3 = ui->Edt_DQO3->text();
     QString ph3 = ui->Edt_pH3->text();
 
@@ -189,9 +178,11 @@ void MainWindow::on_Btn_Salvar_clicked()
         //auxiliar para merge de celulas
         int linhaInicial = row;
         int linhaFinal = row + 2;
+        int linhaFinalCriterio = row + 1;
 
         //se a celula for igual a nula escrevemos uma nova linha
         //linha e coluna
+
         xlsxR.write(row,1, data_incubacao); // write to cell(row,col).
         xlsxR.mergeCells(QString("A%1").arg(linhaInicial) + ":" + QString("A%1").arg(linhaFinal), formato);
 
@@ -220,43 +211,83 @@ void MainWindow::on_Btn_Salvar_clicked()
         xlsxR.mergeCells(QString("I%1").arg(linhaInicial) + ":" + QString("I%1").arg(linhaFinal), formato);
 
         //Escrever 3 amostras na mesma coluna e em linhas diferentes
-        //Coluna 10 - Biogas
-        xlsxR.write(row,10, biogas1);
-        xlsxR.write(row+1,10, biogas2);
-        xlsxR.write(row+2,10, biogas3);
 
-        QString LINHAS = QString("J%1").arg(linhaInicial) + ":" + QString("J%1").arg(linhaFinal);
+        //INICIO-BIOGAS-------------------------------------------------------
+        //Coluna 10 - Biogas
+        //Valores Convertidos
+
+        xlsxR.write(row,10,  biogas1.toInt());
+        xlsxR.write(row+1,10, biogas2.toInt());
+        xlsxR.write(row+2,10, biogas3.toInt());
+
+        //Linha contendo as celulas selecionadas - Coluna J
+        QString LINHASBIOGAS = QString("J%1").arg(linhaInicial) + ":" + QString("J%1").arg(linhaFinal);
+
+        //Linha contendo as celulas selecionadas - Coluna K
+        QString LINHACRITERIOBIOGAS = "(" + QString("K%1").arg(linhaInicial) + "-" + QString("K%1").arg(linhaFinalCriterio) + ")" + "/" + QString("K%1").arg(linhaFinalCriterio);
 
         //Formulas Biogas
-        xlsxR.write(row,11, "=MAXIMO("+ LINHAS +")");
-        xlsxR.write(row+1,11, "=MÍNIMO("+ LINHAS +")");
-        xlsxR.write(row,12, "=SE(A2=0;"";(K2-K3)/K3)");
-        xlsxR.write(row,13, "=MÉDIA(J2:J4)");
+        xlsxR.write(row,11, "=MAX("+ LINHASBIOGAS +")");
+        xlsxR.write(row+1,11, "=MIN(" + LINHASBIOGAS +")");
+        xlsxR.write(row, 12, "=" + LINHACRITERIOBIOGAS);
+        xlsxR.write(row,13, "=AVERAGE("+ LINHASBIOGAS +")");
+        //FIM-BIOGAS------------------------------------------------------
+
+        //INICIO-METANO------------------------------------------------------
 
         //Coluna 14 - Metano
-        xlsxR.write(row,14, metano1);
-        xlsxR.write(row+1,14, metano2);
-        xlsxR.write(row+2,14, metano3);
+        xlsxR.write(row,14, metano1.toInt());
+        xlsxR.write(row+1,14, metano2.toInt());
+        xlsxR.write(row+2,14, metano3.toInt());
+
+        //Auxiliares de Calculo
+        QString LINHASMETANO = QString("N%1").arg(linhaInicial) + ":" + QString("N%1").arg(linhaFinal);
+        QString LINHACRITERIOMETANO = "(" + QString("O%1").arg(linhaInicial) + "-" + QString("O%1").arg(linhaFinalCriterio) + ")" + "/" + QString("O%1").arg(linhaFinalCriterio);
+        QString LINHAMETANOBIOGAS = "(" + QString("Q%1").arg(linhaInicial) + "/" + QString("M%1").arg(linhaInicial) + ")";
+
+        //Formulas Metano
+        xlsxR.write(row,15, "=MAX("+ LINHASMETANO +")");
+        xlsxR.write(row+1,15, "=MIN(" + LINHASMETANO +")");
+        xlsxR.write(row, 16, "=" + LINHACRITERIOMETANO);
+        xlsxR.write(row,17, "=AVERAGE("+ LINHASMETANO +")");
+        xlsxR.write(row,18, "=" + LINHAMETANOBIOGAS);
+
+        //FIM-METANO------------------------------------------------------
+
+        //INICIO-ST------------------------------------------------------
 
         //Coluna 19 - ST
-        xlsxR.write(row,19, st1);
-        xlsxR.write(row+1,19, st2);
-        xlsxR.write(row+2,19, st3);
+        xlsxR.write(row,19, st1.toInt());
+        xlsxR.write(row+1,19, st2.toInt());
+        xlsxR.write(row+2,19, st3.toInt());
+
+        //Formulas Solidos Totais
+        QString LINHASOLIDOSTOTAIS = QString("S%1").arg(linhaInicial) + ":" + QString("S%1").arg(linhaFinal);
+
+        //=MÉDIA(S2:S4)*10
+        xlsxR.write(row,20, "=AVERAGE("+ LINHASOLIDOSTOTAIS +")*10");
+
+        //CRITERIO DE ACEITACAO
+        //=((MAIOR(S2:S4;1))-(MENOR(S2:S4;1)))/(((MAIOR(S2:S4;1))+(MENOR(S2:S4;1)))/2)*100
+        //Verificar amanha
+        xlsxR.write(row,21, "=((MAX(" + LINHASOLIDOSTOTAIS + ";1))-(MIN(" + LINHASOLIDOSTOTAIS + ";1)))/(((MAX(" + LINHASOLIDOSTOTAIS +";1))+(MIN(" + LINHASOLIDOSTOTAIS + ";1)))/2)*100");
+
+        //FIM-ST------------------------------------------------------
 
         //Coluna 22 - SV
-        xlsxR.write(row,22, sv1);
-        xlsxR.write(row+1,22, sv2);
-        xlsxR.write(row+2,22, sv3);
+        xlsxR.write(row,22, sv1.toInt());
+        xlsxR.write(row+1,22, sv2.toInt());
+        xlsxR.write(row+2,22, sv3.toInt());
 
         //Coluna 26 - DQO
-        xlsxR.write(row,26, dqo1);
-        xlsxR.write(row+1,26, dqo2);
-        xlsxR.write(row+2,26, dqo3);
+        xlsxR.write(row,26, dqo1.toInt());
+        xlsxR.write(row+1,26, dqo2.toInt());
+        xlsxR.write(row+2,26, dqo3.toInt());
 
         //Coluna 28 - PH
-        xlsxR.write(row,28, ph1);
-        xlsxR.write(row+1,28, ph2);
-        xlsxR.write(row+2,28, ph3);
+        xlsxR.write(row,28, ph1.toInt());
+        xlsxR.write(row+1,28, ph2.toInt());
+        xlsxR.write(row+2,28, ph3.toInt());
 
         //Formatar linhas com textos centralizados
         xlsxR.setRowFormat(row, formato);
@@ -270,41 +301,37 @@ void MainWindow::on_Btn_Salvar_clicked()
 
         //Limpar Campos
         //ui->Edt_DataIncubacao->setDate("01/01/2019");
-        ui->Edt_Protocolo->setText("");
+        ui->Edt_Protocolo->setText("-");
         //ui->CmB_Mercado->
         //ui->CmB_Setor->
         //ui->CmB_AmostraFase->
         //ui->CmB_OrigemMateriaPrima->
-        ui->Edt_PontoColeta->setText("");
-        ui->EdtText_InformacoesComplementares->setText("");
+        ui->Edt_PontoColeta->setText("-");
+        ui->EdtText_InformacoesComplementares->setText("-");
 
-        ui->Edt_Biogas1->setText("");
-        ui->Edt_Biogas2->setText("");
-        ui->Edt_Biogas3->setText("");
+        ui->Edt_Biogas1->setText("0");
+        ui->Edt_Biogas2->setText("0");
+        ui->Edt_Biogas3->setText("0");
 
-        ui->Edt_Metano1->setText("");
-        ui->Edt_Metano2->setText("");
-        ui->Edt_Metano3->setText("");
+        ui->Edt_Metano1->setText("0");
+        ui->Edt_Metano2->setText("0");
+        ui->Edt_Metano3->setText("0");
 
-        ui->Edt_ST1->setText("");
-        ui->Edt_ST2->setText("");
-        ui->Edt_ST3->setText("");
+        ui->Edt_ST1->setText("0");
+        ui->Edt_ST2->setText("0");
+        ui->Edt_ST3->setText("0");
 
-        ui->Edt_SV1->setText("");
-        ui->Edt_SV2->setText("");
-        ui->Edt_SV3->setText("");
+        ui->Edt_SV1->setText("0");
+        ui->Edt_SV2->setText("0");
+        ui->Edt_SV3->setText("0");
 
-        ui->Edt_SF1->setText("");
-        ui->Edt_SF2->setText("");
-        ui->Edt_SF3->setText("");
+        ui->Edt_DQO1->setText("0");
+        ui->Edt_DQO2->setText("0");
+        ui->Edt_DQO3->setText("0");
 
-        ui->Edt_DQO1->setText("");
-        ui->Edt_DQO2->setText("");
-        ui->Edt_DQO3->setText("");
-
-        ui->Edt_pH1->setText("");
-        ui->Edt_pH2->setText("");
-        ui->Edt_pH3->setText("");
+        ui->Edt_pH1->setText("0");
+        ui->Edt_pH2->setText("0");
+        ui->Edt_pH3->setText("0");
 
         qDebug() << "[debug] success to save data on xlsx file.";
     }
@@ -339,9 +366,6 @@ void MainWindow::on_CB_Amostra2_stateChanged(int arg1)
          //Edt SV
          ui->Edt_SV2->setEnabled(true);
 
-         //Edt SF
-         ui->Edt_SF2->setEnabled(true);
-
          //Edt DQO
          ui->Edt_DQO2->setEnabled(true);
 
@@ -372,10 +396,6 @@ void MainWindow::on_CB_Amostra2_stateChanged(int arg1)
          ui->Edt_SV2->setEnabled(false);
          ui->Edt_SV2->setText("");
 
-         //Edt SF
-         ui->Edt_SF2->setEnabled(false);
-         ui->Edt_SF2->setText("");
-
          //Edt DQO
          ui->Edt_DQO2->setEnabled(false);
          ui->Edt_DQO2->setText("");
@@ -387,7 +407,6 @@ void MainWindow::on_CB_Amostra2_stateChanged(int arg1)
          //Edts do Campo 3
          ui->Edt_pH3->setEnabled(false);
          ui->Edt_DQO3->setEnabled(false);
-         ui->Edt_SF3->setEnabled(false);
          ui->Edt_SV3->setEnabled(false);
          ui->Edt_ST3->setEnabled(false);
          ui->Edt_Metano3->setEnabled(false);
@@ -403,7 +422,6 @@ void MainWindow::on_CB_Amostra3_stateChanged(int arg1)
     if (arg1 == 2) {
          ui->Edt_pH3->setEnabled(true);
          ui->Edt_DQO3->setEnabled(true);
-         ui->Edt_SF3->setEnabled(true);
          ui->Edt_SV3->setEnabled(true);
          ui->Edt_ST3->setEnabled(true);
          ui->Edt_Metano3->setEnabled(true);
@@ -416,9 +434,6 @@ void MainWindow::on_CB_Amostra3_stateChanged(int arg1)
 
         ui->Edt_DQO3->setEnabled(false);
         ui->Edt_DQO3->setText("");
-
-        ui->Edt_SF3->setEnabled(false);
-        ui->Edt_SF3->setText("");
 
         ui->Edt_SV3->setEnabled(false);
         ui->Edt_SV3->setText("");
