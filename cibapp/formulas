@@ -1,0 +1,31 @@
+//Formulas para Referencia
+
+//BIOGAS
+//QString MAXIMABIOGAS = "=MÁXIMO(J2:J4)";
+//QString MINIMOBIOGAS = "=MÍNIMO(J2:J4)";
+//QString CRITERIOLNBIOGAS = "=SE(A2=0;"";(K2-K3)/K3)";
+//QString MEDIALNBIOGAS = "=MÉDIA(J2:J4)";
+
+//METANO
+//QString MAXIMAMETANO = "=MÁXIMO(N5:N7)";
+//QString MINIMOMETANO = "=MÍNIMO(N5:N7)";
+//QString CRITERIOMETANO = "=SE(A2=0;"";(O2-O3)/O3)";
+//QString MEDIAMETANO = "=SE(N5="";"";MÉDIA(N5:N7))";
+//QString PORCENTAGEMMETANOBIOGAS = "=SE(Q5="";"";Q5/M5)";
+
+//Solidos TOTAIS - ST
+//QString MEDIASOLIDOST = "=MÉDIA(S2:S4)*10";
+//QString CRITERIOSOLIDOSST = "=((MAIOR(S2:S4;1))-(MENOR(S2:S4;1)))/(((MAIOR(S2:S4;1))+(MENOR(S2:S4;1)))/2)*100";
+
+//Solidos VOLATEIS - SV
+//QString MEDIASOLIDOSV = "=MÉDIA(V2:V4)*10";
+//QString CRITERIOSOLIDOSSV = "=((MAIOR(V2:V4;1))-(MENOR(V2:V4;1)))/(((MAIOR(V2:V4;1))+(MENOR(V2:V4;1)))/2)*100";
+
+//SF
+//QString SF = "=100-V2";
+
+//DQO
+//QString MEDIADQO = "=SE(Z2="";"";MÉDIA(Z2:Z4))";
+
+//PH
+//QString MEDIAPH = "=SE(AB2="";"";MÉDIA(AB2:AB4))";

@@ -19,7 +19,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
 
+    //Você pode conectar o sinal currentIndexChanged () da primeira caixa de combinação a um slot que verifica se a seleção atual é "Numbers" ou
+    //"Alphabets" e com base no que é selecionado instancia um QComboBox do tipo correto para o segundo e o substitui.
+
+    //Outra opção é colocar todas as várias caixas de combinação para "Comando" em um QStackedWidget e depois em currentIndexChanged ()
+    //da primeira caixa de combinação para verificar qual é a seleção atual e alternar o QStackedWidget para a página contendo a caixa de
+    //combinação Comando correspondente.
+
     ui->setupUi(this);
+
+    //Seta Data Atual no Edit de Data Incubacao
+    ui->Edt_DataIncubacao->setDate(QDate::currentDate());
 
     //ui->CB_Amostra3->setEnabled(false);
 
@@ -78,8 +88,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-//Apos salvar chamar a funcao limpa textos das Eds
-
 void MainWindow::on_Btn_Salvar_clicked()
 {
 
@@ -87,38 +95,6 @@ void MainWindow::on_Btn_Salvar_clicked()
     Format formato;
     formato.setHorizontalAlignment(Format::AlignHCenter);
     formato.setVerticalAlignment(Format::AlignVCenter);
-
-    //Formulas
-
-    //BIOGAS
-    //QString MAXIMABIOGAS = "=MÁXIMO(J2:J4)";
-    //QString MINIMOBIOGAS = "=MÍNIMO(J2:J4)";
-    //QString CRITERIOLNBIOGAS = "=SE(A2=0;"";(K2-K3)/K3)";
-    QString MEDIALNBIOGAS = "=MÉDIA(J2:J4)";
-
-    //METANO
-    QString MAXIMAMETANO = "=MÁXIMO(N5:N7)";
-    QString MINIMOMETANO = "=MÍNIMO(N5:N7)";
-    QString CRITERIOMETANO = "=SE(A2=0;"";(O2-O3)/O3)";
-    QString MEDIAMETANO = "=SE(N5="";"";MÉDIA(N5:N7))";
-    QString PORCENTAGEMMETANOBIOGAS = "=SE(Q5="";"";Q5/M5)";
-
-    //Solidos TOTAIS - ST
-    QString MEDIASOLIDOST = "=MÉDIA(S2:S4)*10";
-    QString CRITERIOSOLIDOSST = "=((MAIOR(S2:S4;1))-(MENOR(S2:S4;1)))/(((MAIOR(S2:S4;1))+(MENOR(S2:S4;1)))/2)*100";
-
-    //Solidos VOLATEIS - SV
-    QString MEDIASOLIDOSV = "=MÉDIA(V2:V4)*10";
-    QString CRITERIOSOLIDOSSV = "=((MAIOR(V2:V4;1))-(MENOR(V2:V4;1)))/(((MAIOR(V2:V4;1))+(MENOR(V2:V4;1)))/2)*100";
-
-    //SF
-    QString SF = "=100-V2";
-
-    //DQO
-    QString MEDIADQO = "=SE(Z2="";"";MÉDIA(Z2:Z4))";
-
-    //PH
-    QString MEDIAPH = "=SE(AB2="";"";MÉDIA(AB2:AB4))";
 
     //Valores do Form
     QString data_incubacao = ui->Edt_DataIncubacao->text();
@@ -164,7 +140,7 @@ void MainWindow::on_Btn_Salvar_clicked()
 
         // criar estrutura de repetição para mudar a linha
         int row = 2;
-        int col = 3;
+        int col = 10;
 
         // get cell pointer
         Cell* cell = xlsxR.cellAt(row, col);
@@ -269,71 +245,131 @@ void MainWindow::on_Btn_Salvar_clicked()
 
         //CRITERIO DE ACEITACAO
         //=((MAIOR(S2:S4;1))-(MENOR(S2:S4;1)))/(((MAIOR(S2:S4;1))+(MENOR(S2:S4;1)))/2)*100
-        //Verificar amanha
-        xlsxR.write(row,21, "=((MAX(" + LINHASOLIDOSTOTAIS + ";1))-(MIN(" + LINHASOLIDOSTOTAIS + ";1)))/(((MAX(" + LINHASOLIDOSTOTAIS +";1))+(MIN(" + LINHASOLIDOSTOTAIS + ";1)))/2)*100");
+        //Sugestao Libre Office
+        //=((MÁXIMO(S2:S4;1))-(MÍNIMO(S2:S4;1)))/(((MÁXIMO(S2:S4;1))+(MÍNIMO(S2:S4;1)))/2)*100
+
+        //Verificar
+        QString formulaCriterioST = "=((MAX(" + LINHASOLIDOSTOTAIS + "))-(MIN(" + LINHASOLIDOSTOTAIS + ")))/(((MAX(" + LINHASOLIDOSTOTAIS + "))+(MIN(" + LINHASOLIDOSTOTAIS + ")))/2)*100";
+
+        xlsxR.write(row,21, formulaCriterioST);
 
         //FIM-ST------------------------------------------------------
+
+        //INICIO-SV------------------------------------------------------
 
         //Coluna 22 - SV
         xlsxR.write(row,22, sv1.toInt());
         xlsxR.write(row+1,22, sv2.toInt());
         xlsxR.write(row+2,22, sv3.toInt());
 
+        //Formulas Solidos Totais
+        QString LINHASV = QString("V%1").arg(linhaInicial) + ":" + QString("V%1").arg(linhaFinal);
+        QString LINHASF1 = QString("V%1").arg(linhaInicial);
+        QString LINHASF2 = QString("V%1").arg(linhaInicial+1);
+        QString LINHASF3 = QString("V%1").arg(linhaInicial+2);
+
+        //=MÉDIA(V2:V4)*10
+        xlsxR.write(row,23, "=AVERAGE("+ LINHASV +")*10");
+
+        //CRITERIO DE ACEITACAO SOLUDOS VOLATEIS
+        //=((MAIOR(V2:V4;1))-(MENOR(V2:V4;1)))/(((MAIOR(V2:V4;1))+(MENOR(V2:V4;1)))/2)*100
+        //Verificar
+        QString formulaCriterioSV = "=((MAX(" + LINHASV + "))-(MIN(" + LINHASV + ")))/(((MAX(" + LINHASV + "))+(MIN(" + LINHASV + ")))/2)*100";
+
+        xlsxR.write(row,24, formulaCriterioSV);
+
+        xlsxR.write(row,25, "=100-" + LINHASF1);
+        xlsxR.write(row+1,25, "=100-" + LINHASF2);
+        xlsxR.write(row+2,25, "=100-" + LINHASF3);
+
+        //FIM-SV----------------------------------------------------------
+
+        //INICIO-DQO------------------------------------------------------
+
         //Coluna 26 - DQO
         xlsxR.write(row,26, dqo1.toInt());
         xlsxR.write(row+1,26, dqo2.toInt());
         xlsxR.write(row+2,26, dqo3.toInt());
+
+        //Formulas DQO
+        QString LINHADQO = QString("Z%1").arg(linhaInicial) + ":" + QString("Z%1").arg(linhaFinal);
+
+        //=MÉDIA(AA2:AA4)*10
+        xlsxR.write(row,27, "=AVERAGE("+ LINHADQO +")");
+        xlsxR.mergeCells(QString("AA%1").arg(linhaInicial) + ":" + QString("AA%1").arg(linhaFinal), formato);
+
+        //FIM-DQO---------------------------------------------------------
+
+        //INICIO-PH------------------------------------------------------
 
         //Coluna 28 - PH
         xlsxR.write(row,28, ph1.toInt());
         xlsxR.write(row+1,28, ph2.toInt());
         xlsxR.write(row+2,28, ph3.toInt());
 
+        //Formulas PH
+        QString LINHAPH = QString("AB%1").arg(linhaInicial) + ":" + QString("AB%1").arg(linhaFinal);
+
+        //=MÉDIA(AB2:AB4)*10
+        xlsxR.write(row,29, "=AVERAGE("+ LINHAPH +")");
+        xlsxR.mergeCells(QString("AC%1").arg(linhaInicial) + ":" + QString("AC%1").arg(linhaFinal), formato);
+
+        //FIM-PH------------------------------------------------------
+
         //Formatar linhas com textos centralizados
         xlsxR.setRowFormat(row, formato);
         xlsxR.setRowFormat(row+1, formato);
         xlsxR.setRowFormat(row+2, formato);
 
-        xlsxR.save();
+        //Salva linha na planilha
+        if (xlsxR.save())
+        {
+            //Mensagem que salvou o arquivo no XLSX
+            QMessageBox::information(this, "CIBLAB - Salvar", "Salvo com sucesso! - Data de Incubação: " + data_incubacao);
 
-        //Mensagem que salvou o arquivo no XLSX
-        QMessageBox::information(this, "Salvar", "Salvo com sucesso! - Data de Incubação: " + data_incubacao);
+            //Apos salvar chamar a funcao limpa textos
+            //Limpar Campos
+            ui->Edt_DataIncubacao->setDate(QDate::currentDate());
+            ui->Edt_Protocolo->setText("-");
+            ui->CmB_Procedencia->setCurrentIndex(0);
+            ui->CmB_Mercado->setCurrentIndex(0);
+            ui->CmB_Setor->setCurrentIndex(0);
+            ui->CmB_AmostraFase->setCurrentIndex(0);
+            ui->CmB_OrigemMateriaPrima->setCurrentIndex(0);
+            ui->Edt_PontoColeta->setText("-");
+            ui->EdtText_InformacoesComplementares->setText("-");
 
-        //Limpar Campos
-        //ui->Edt_DataIncubacao->setDate("01/01/2019");
-        ui->Edt_Protocolo->setText("-");
-        //ui->CmB_Mercado->
-        //ui->CmB_Setor->
-        //ui->CmB_AmostraFase->
-        //ui->CmB_OrigemMateriaPrima->
-        ui->Edt_PontoColeta->setText("-");
-        ui->EdtText_InformacoesComplementares->setText("-");
+            ui->Edt_Biogas1->setText("-");
+            ui->Edt_Biogas2->setText("-");
+            ui->Edt_Biogas3->setText("-");
 
-        ui->Edt_Biogas1->setText("0");
-        ui->Edt_Biogas2->setText("0");
-        ui->Edt_Biogas3->setText("0");
+            ui->Edt_Metano1->setText("-");
+            ui->Edt_Metano2->setText("-");
+            ui->Edt_Metano3->setText("-");
 
-        ui->Edt_Metano1->setText("0");
-        ui->Edt_Metano2->setText("0");
-        ui->Edt_Metano3->setText("0");
+            ui->Edt_ST1->setText("-");
+            ui->Edt_ST2->setText("-");
+            ui->Edt_ST3->setText("-");
 
-        ui->Edt_ST1->setText("0");
-        ui->Edt_ST2->setText("0");
-        ui->Edt_ST3->setText("0");
+            ui->Edt_SV1->setText("-");
+            ui->Edt_SV2->setText("-");
+            ui->Edt_SV3->setText("-");
 
-        ui->Edt_SV1->setText("0");
-        ui->Edt_SV2->setText("0");
-        ui->Edt_SV3->setText("0");
+            ui->Edt_DQO1->setText("-");
+            ui->Edt_DQO2->setText("-");
+            ui->Edt_DQO3->setText("-");
 
-        ui->Edt_DQO1->setText("0");
-        ui->Edt_DQO2->setText("0");
-        ui->Edt_DQO3->setText("0");
+            ui->Edt_pH1->setText("-");
+            ui->Edt_pH2->setText("-");
+            ui->Edt_pH3->setText("-");
 
-        ui->Edt_pH1->setText("0");
-        ui->Edt_pH2->setText("0");
-        ui->Edt_pH3->setText("0");
+            qDebug() << "[debug] success to save data on xlsx file.";
 
-        qDebug() << "[debug] success to save data on xlsx file.";
+        } else {
+            //Mensagem de erro no arquivo XLSX
+            QMessageBox::critical(this, "CIBLAB - Salvar", "Ocorreu um erro ao salvar as informações! Verifique se o arquivo esta protegido ou bloqueado por outro programa.");
+        }
+
     }
     else
     {

@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     MainWindow w;
+    w.setFixedSize(1045,728);
     w.show();
 
     // [1]  Writing excel file(*.xlsx)

@@ -119,7 +119,7 @@ OBJECTS       = debug/xlsxabstractooxmlfile.o \
 		debug/moc_xlsxdocument.o \
 		debug/moc_mainwindow.o
 
-DIST          =  ..\QXlsx\header\xlsxabstractooxmlfile.h \
+DIST          = formulas ..\QXlsx\header\xlsxabstractooxmlfile.h \
 		..\QXlsx\header\xlsxabstractooxmlfile_p.h \
 		..\QXlsx\header\xlsxabstractsheet.h \
 		..\QXlsx\header\xlsxabstractsheet_p.h \
@@ -4114,11 +4114,6 @@ debug/mainwindow.o: mainwindow.cpp C:/Qt/5.13.0/mingw73_32/include/QtCore/QDir \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtGui/qguiapplication.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QCheckBox \
-		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qcheckbox.h \
-		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QComboBox \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qcombobox.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
@@ -4139,11 +4134,6 @@ debug/mainwindow.o: mainwindow.cpp C:/Qt/5.13.0/mingw73_32/include/QtCore/QDir \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QFrame \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QGroupBox \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qgroupbox.h \
-		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/5.13.0/mingw73_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QLabel \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qlabel.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QLineEdit \
@@ -4158,10 +4148,12 @@ debug/mainwindow.o: mainwindow.cpp C:/Qt/5.13.0/mingw73_32/include/QtCore/QDir \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qmenubar.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QPushButton \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QStatusBar \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qstatusbar.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QTextEdit \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qtextedit.h \
+		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtGui/qtextdocument.h \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/QToolBar \
 		C:/Qt/5.13.0/mingw73_32/include/QtWidgets/qtoolbar.h \

@@ -68,6 +68,22 @@
        <height>27</height>
       </rect>
      </property>
+     <property name="dateTime">
+      <datetime>
+       <hour>0</hour>
+       <minute>0</minute>
+       <second>0</second>
+       <year>2019</year>
+       <month>1</month>
+       <day>1</day>
+      </datetime>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+     <property name="timeSpec">
+      <enum>Qt::TimeZone</enum>
+     </property>
     </widget>
     <widget class="QLabel" name="Lbl_Protocolo">
      <property name="geometry">
@@ -141,12 +157,12 @@
      </item>
      <item>
       <property name="text">
-       <string>Cultura energética</string>
+       <string>Cultura Energética</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Garantia de qualidade</string>
+       <string>Garantia de Qualidade</string>
       </property>
      </item>
      <item>
@@ -156,7 +172,7 @@
      </item>
      <item>
       <property name="text">
-       <string>Resíduo urbano</string>
+       <string>Resíduo Urbano</string>
       </property>
      </item>
     </widget>
@@ -312,7 +328,7 @@ p, li { white-space: pre-wrap; }
      </item>
      <item>
       <property name="text">
-       <string>Cultivo energético</string>
+       <string>Cultivo Energético</string>
       </property>
      </item>
      <item>
@@ -322,27 +338,52 @@ p, li { white-space: pre-wrap; }
      </item>
      <item>
       <property name="text">
-       <string>Resíduo de tratamento de esgoto</string>
+       <string>Resíduo deTtratamento de Esgoto</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Resíduos alimentares</string>
+       <string>Resíduos Alimentares</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Resíduo da indústria agropecuária</string>
+       <string>Resíduo da Indústria Agropecuária</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Resíduo da industria de biocombustiveis</string>
+       <string>Resíduo da Industria de Biocombustiveis</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Resíduos da produção de açúcar, amído e produtos secundários</string>
+       <string>Resíduos da Produção de Açúcar, Amído e Produtos Secundários</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduos da Produção de Óleo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduos de Matadouro e Restos de Animais</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduos de Pecuária</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduos Diversos da Indústria de Alimentos</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduos Industriais</string>
       </property>
      </item>
     </widget>
@@ -362,7 +403,7 @@ p, li { white-space: pre-wrap; }
      </item>
      <item>
       <property name="text">
-       <string>Abatedouro de aves</string>
+       <string>Abatedouro de Aves</string>
       </property>
      </item>
      <item>
@@ -387,7 +428,7 @@ p, li { white-space: pre-wrap; }
      </item>
      <item>
       <property name="text">
-       <string>Biomassa vegetal</string>
+       <string>Biomassa Vegetal</string>
       </property>
      </item>
      <item>
@@ -407,7 +448,122 @@ p, li { white-space: pre-wrap; }
      </item>
      <item>
       <property name="text">
-       <string>Efluente industrial</string>
+       <string>Efluente Industrial</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Esgoto Doméstico</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Feijão</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Gelatina</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Glicerol</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Gordura</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Indústria de Beneficiamento de Arroz</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Indústria Sucroalcoleira</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Laticíneio</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Lodo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Macrófita</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Maravalha</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Óleo Vegetal</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ovinoultura</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Padrão Positivo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ração Animal</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo da Industria de Papel e Celulose</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo de Cigarro</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo de Peneira de Grãos</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo de Pescado</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo de Sólido Orgânico</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Silagem</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Suinocultura</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Indústria de suco</string>
       </property>
      </item>
     </widget>
@@ -427,17 +583,17 @@ p, li { white-space: pre-wrap; }
      </item>
      <item>
       <property name="text">
-       <string>Água residual</string>
+       <string>Água Residual</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Algas decantadas</string>
+       <string>Algas Decantadas</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Algas floculadas</string>
+       <string>Algas Floculadas</string>
       </property>
      </item>
      <item>
@@ -452,17 +608,432 @@ p, li { white-space: pre-wrap; }
      </item>
      <item>
       <property name="text">
-       <string>Amostra sólida</string>
+       <string>Amostra Sólida</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Amostra suco</string>
+       <string>Amostra Suco</string>
       </property>
      </item>
      <item>
       <property name="text">
        <string>Armazenamento</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Aves Poedeiras</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Bagaço de Cana</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Bolacha + Massa de Recheio</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Bovino + Aves Poedeiras</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Bovino + Suíno</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Café</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cama de Aves</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cama de Bovinos</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cama de Matrizeiro</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cana Energia</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Capim Elefante</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Carne</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Casca de Arroz</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cebola</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Celulose Cristalina</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ciclo Completo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Chiorella</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Coco verde</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Compostagem</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Corteza</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dejeto bovino</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dejeto de Salmão</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Creche</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dejeto de Aves + Bovino de Corte</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dejeto Ovino</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dejeto de Suíno</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Efluentes da Agroindústria</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Efluente Bruto</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Efluente Industrial</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Efluente Líquido</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Esgoto Doméstico</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Feijão Preto Cru</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Finos de Madeira</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Folhas de Citronela</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fração Orgânica RSU</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Gelatina</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Gordura Animal</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Grama</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Lodo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Macrófita</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Maravalha com Urina de Rato</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Massa de Mandioca</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Matrizeiro</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Mistura Homogenizada</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Mix</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Óleo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Palha Cultivo Cana</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Visceras de Peixe</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Pistia Stratiolis</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ração Animal</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo de Cigarro</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo de Glicerol</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo de Limpeza do Secador de Arroz</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo de Restaurante</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo de Secagem de Arroz</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo Incubatório</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo Orgânico</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo Sólido Extrusora</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduos Máquinas Limpeza de Grãos</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduoes Peneira</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Salvínia</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sedimento</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Silagem de Aveia</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Silagem de Braquiária</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Silagem de Grama</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Silagem de Grama  + Glicerina</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Resíduo de Grãos</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Silagem de Milho</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Silagem de Trigo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sólido</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sólido Extrusora</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Soro de Leite</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Tangencial</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Terminação</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Torta de Filtro</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Triturado de Madeira</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>UPL</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Uruchloa Subquadripara</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Vinhaça</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Vísceras</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Wolffia</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Zebrina Trandescandia</string>
       </property>
      </item>
     </widget>
@@ -531,6 +1102,19 @@ p, li { white-space: pre-wrap; }
       <string>Salvar</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Campos Obrigatórios (*)</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="GrBox_Valores">
     <property name="geometry">
@@ -576,7 +1160,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>61</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_AmostraBiogas1">
@@ -611,7 +1195,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>56</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Biogas3">
@@ -627,7 +1211,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>59</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Metano3">
@@ -643,7 +1227,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>321</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Metano2">
@@ -659,7 +1243,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>302</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Metano1">
@@ -672,7 +1256,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>288</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_Metano">
@@ -704,7 +1288,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>95</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_ST2">
@@ -720,7 +1304,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>79</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_ST3">
@@ -736,7 +1320,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>95</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_ST">
@@ -771,7 +1355,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>64</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_SV1">
@@ -803,7 +1387,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>64</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_SV2">
@@ -819,7 +1403,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>64</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_DQO3">
@@ -835,7 +1419,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>986</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_DQO2">
@@ -851,7 +1435,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>456</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_DQO1">
@@ -864,7 +1448,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>664</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_DQO">
@@ -899,7 +1483,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>74</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_pH1">
@@ -912,7 +1496,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>75</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_pH2">
@@ -928,7 +1512,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>74</string>
+      <string>-</string>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_pH">
