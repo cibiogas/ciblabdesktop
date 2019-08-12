@@ -40,7 +40,13 @@ HEADERS += \
         mainwindow.h
 
 FORMS += \
+        dialog.ui \
         mainwindow.ui
 
 DISTFILES += \
-    formulas
+    formulas \
+    icon.ico \
+    icon.rc
+
+#Icones
+#win32:RC_ICONS += cibiogas.ico

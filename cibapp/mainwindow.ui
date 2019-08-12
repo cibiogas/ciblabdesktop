@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>CIBLAB - Compilação de Dados Laboratório</string>
+   <string>CIBLAB - Cadastro de Informações do Laboratório de Biogás</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -113,7 +113,16 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="inputMask">
+      <string/>
+     </property>
      <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>15</number>
+     </property>
+     <property name="placeholderText">
       <string>IN-18/03/19</string>
      </property>
     </widget>
@@ -264,6 +273,9 @@
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>100</number>
+     </property>
     </widget>
     <widget class="QLabel" name="Lbl_InformacaoComplementar">
      <property name="geometry">
@@ -338,7 +350,7 @@ p, li { white-space: pre-wrap; }
      </item>
      <item>
       <property name="text">
-       <string>Resíduo deTtratamento de Esgoto</string>
+       <string>Resíduo de Tratamento de Esgoto</string>
       </property>
      </item>
      <item>
@@ -1061,7 +1073,7 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>10</x>
        <y>160</y>
-       <width>171</width>
+       <width>261</width>
        <height>25</height>
       </rect>
      </property>
@@ -1072,7 +1084,502 @@ p, li { white-space: pre-wrap; }
      </item>
      <item>
       <property name="text">
+       <string>Amafil Alimentos</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Amidos Mundo Novo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Amitec (Goioerê)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Agropecuária Estrela da Manhã LTDA</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Adriana Kunz (Delcia Osterkamp))</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Ataides Hansen)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Carlos e Noeli Zahler)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (David Dilkin)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Eldo Matte)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Elizabet Vargas)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Elmiro Berwald)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Eugênio e Reinoldo Wolfart)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Fernando Fígula)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Hedo Allenbrandt)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Milton Layter)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Moacir Rupulo)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Maide Pinz)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Neiva Escher Kotters)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Odacir Rupolo)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Pedro Regelmeier e Usula Fritsch)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Sírio Sérgio Nath)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Teobaldo Neunfeld)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ajuricaba (Valmor Ademir Escher)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>André Douglas</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>André Amaral</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Angelo Grigio</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Apolo Energia</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>A.R.G</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Barracão de Aves</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>BSBIOS</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Brazilian Oleochemical</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>C.Vale</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cana Brava</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Caroliny Matinc</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cerâmica Stein</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>CELF-Energias</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cocamar</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Colombari</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cooke Aquaculture Chile</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ecocitrus</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Eduardo Fontes Silveira</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Eliana de Bona</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Eliane Vendrusculo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Eliane Vendrusculo (Pedro Regelmeier)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>ER-GP</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>EMBRAPA</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>ERO</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Estação Experimental Biovertis</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Farinheira Guaiporã</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fazenda Continental</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>FC Stone</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fecularia Bankhardt</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fecularia Lopes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fecularia Podium</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fernando Langwiski</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Generall Mills</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Gonçalves e Tortola AS (GT Foods)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Granja Cacic</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Granja Haacke</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>General Water/ Granja Vianna</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Grupo ARG</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Horizonte</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>Laboratório</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Lacto</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Laticínio Guaíra</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Laticínio Latco</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Leal Engenharia Quimica LTDA</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Lucas F. J. Wessling</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Luiz Hoffman</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Interlaboratorial Embrapa</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Industria de sucos  Prats</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Itaipu</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Lar</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Mabel Alimentos</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>MAPA</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Mar del Plata</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Milton Layter</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Nayareth</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Nutriamidos</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>PAFE</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Parque Nacional do Iguaçu</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Pasquini Amidos</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Paulo de Carvalho Mendes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Petropar</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Podium Alimentos</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Profª Estela</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Thiago Edwiges</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Raízen</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Refúgio</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Restaurante </string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ricardo Muller</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Rodolfo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sadia</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sagitta</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Star Milk</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Superbac</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Tania Menegol</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>UD CIBiogás</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Wegmed</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>WestRock</string>
       </property>
      </item>
     </widget>
@@ -1102,7 +1609,7 @@ p, li { white-space: pre-wrap; }
       <string>Salvar</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_Obrigatorios">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -1162,6 +1669,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLabel" name="Lbl_AmostraBiogas1">
      <property name="geometry">
@@ -1197,6 +1707,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Biogas3">
      <property name="enabled">
@@ -1212,6 +1725,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="text">
       <string>-</string>
+     </property>
+     <property name="maxLength">
+      <number>6</number>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Metano3">
@@ -1229,6 +1745,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Metano2">
      <property name="enabled">
@@ -1245,6 +1764,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_Metano1">
      <property name="geometry">
@@ -1257,6 +1779,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="text">
       <string>-</string>
+     </property>
+     <property name="maxLength">
+      <number>6</number>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_Metano">
@@ -1290,6 +1815,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_ST2">
      <property name="enabled">
@@ -1306,6 +1834,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_ST3">
      <property name="enabled">
@@ -1321,6 +1852,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="text">
       <string>-</string>
+     </property>
+     <property name="maxLength">
+      <number>6</number>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_ST">
@@ -1357,6 +1891,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLabel" name="Lbl_SV1">
      <property name="geometry">
@@ -1389,6 +1926,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_SV2">
      <property name="enabled">
@@ -1404,6 +1944,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="text">
       <string>-</string>
+     </property>
+     <property name="maxLength">
+      <number>6</number>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_DQO3">
@@ -1421,6 +1964,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_DQO2">
      <property name="enabled">
@@ -1437,6 +1983,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_DQO1">
      <property name="geometry">
@@ -1449,6 +1998,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="text">
       <string>-</string>
+     </property>
+     <property name="maxLength">
+      <number>6</number>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_DQO">
@@ -1485,6 +2037,9 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>-</string>
      </property>
+     <property name="maxLength">
+      <number>6</number>
+     </property>
     </widget>
     <widget class="QLineEdit" name="Edt_pH1">
      <property name="geometry">
@@ -1497,6 +2052,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="text">
       <string>-</string>
+     </property>
+     <property name="maxLength">
+      <number>6</number>
      </property>
     </widget>
     <widget class="QLineEdit" name="Edt_pH2">
@@ -1513,6 +2071,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="text">
       <string>-</string>
+     </property>
+     <property name="maxLength">
+      <number>6</number>
      </property>
     </widget>
     <widget class="QLabel" name="Lbl_pH">
@@ -1879,8 +2440,48 @@ p, li { white-space: pre-wrap; }
     <string>Sair</string>
    </property>
   </action>
+  <action name="actionacton">
+   <property name="text">
+    <string>acton</string>
+   </property>
+  </action>
+  <action name="actionaction_Help">
+   <property name="text">
+    <string>action_Help</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>Edt_DataIncubacao</tabstop>
+  <tabstop>Edt_Protocolo</tabstop>
+  <tabstop>CmB_Procedencia</tabstop>
+  <tabstop>CmB_Mercado</tabstop>
+  <tabstop>CmB_OrigemMateriaPrima</tabstop>
+  <tabstop>CmB_Setor</tabstop>
+  <tabstop>CmB_AmostraFase</tabstop>
+  <tabstop>Edt_PontoColeta</tabstop>
+  <tabstop>EdtText_InformacoesComplementares</tabstop>
+  <tabstop>Edt_Biogas1</tabstop>
+  <tabstop>Edt_Biogas2</tabstop>
+  <tabstop>Edt_Biogas3</tabstop>
+  <tabstop>Edt_Metano1</tabstop>
+  <tabstop>Edt_Metano2</tabstop>
+  <tabstop>Edt_Metano3</tabstop>
+  <tabstop>Edt_ST1</tabstop>
+  <tabstop>Edt_ST2</tabstop>
+  <tabstop>Edt_ST3</tabstop>
+  <tabstop>Edt_SV1</tabstop>
+  <tabstop>Edt_SV2</tabstop>
+  <tabstop>Edt_SV3</tabstop>
+  <tabstop>Edt_DQO1</tabstop>
+  <tabstop>Edt_DQO2</tabstop>
+  <tabstop>Edt_DQO3</tabstop>
+  <tabstop>Edt_pH1</tabstop>
+  <tabstop>Edt_pH2</tabstop>
+  <tabstop>Edt_pH3</tabstop>
+  <tabstop>Btn_Salvar</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -205,7 +205,7 @@ void MainWindow::on_Btn_Salvar_clicked()
         //Formulas Biogas
         xlsxR.write(row,11, "=MAX("+ LINHASBIOGAS +")");
         xlsxR.write(row+1,11, "=MIN(" + LINHASBIOGAS +")");
-        xlsxR.write(row, 12, "=" + LINHACRITERIOBIOGAS);
+        xlsxR.write(row, 12, "=(" + LINHACRITERIOBIOGAS + ")*100"); // Coluna L
         xlsxR.write(row,13, "=AVERAGE("+ LINHASBIOGAS +")");
         //FIM-BIOGAS------------------------------------------------------
 
@@ -225,8 +225,8 @@ void MainWindow::on_Btn_Salvar_clicked()
         xlsxR.write(row,15, "=MAX("+ LINHASMETANO +")");
         xlsxR.write(row+1,15, "=MIN(" + LINHASMETANO +")");
         xlsxR.write(row, 16, "=" + LINHACRITERIOMETANO);
-        xlsxR.write(row,17, "=AVERAGE("+ LINHASMETANO +")");
-        xlsxR.write(row,18, "=" + LINHAMETANOBIOGAS);
+        xlsxR.write(row,17, "=AVERAGE("+ LINHASMETANO +")"); // Coluna P
+        xlsxR.write(row,18, "=" + LINHAMETANOBIOGAS); // Coluna Q
 
         //FIM-METANO------------------------------------------------------
 
@@ -294,7 +294,7 @@ void MainWindow::on_Btn_Salvar_clicked()
         //Formulas DQO
         QString LINHADQO = QString("Z%1").arg(linhaInicial) + ":" + QString("Z%1").arg(linhaFinal);
 
-        //=MÉDIA(AA2:AA4)*10
+        //=MÉDIA(AA2:AA4)
         xlsxR.write(row,27, "=AVERAGE("+ LINHADQO +")");
         xlsxR.mergeCells(QString("AA%1").arg(linhaInicial) + ":" + QString("AA%1").arg(linhaFinal), formato);
 
@@ -310,7 +310,7 @@ void MainWindow::on_Btn_Salvar_clicked()
         //Formulas PH
         QString LINHAPH = QString("AB%1").arg(linhaInicial) + ":" + QString("AB%1").arg(linhaFinal);
 
-        //=MÉDIA(AB2:AB4)*10
+        //=MÉDIA(AB2:AB4)
         xlsxR.write(row,29, "=AVERAGE("+ LINHAPH +")");
         xlsxR.mergeCells(QString("AC%1").arg(linhaInicial) + ":" + QString("AC%1").arg(linhaFinal), formato);
 
@@ -330,7 +330,7 @@ void MainWindow::on_Btn_Salvar_clicked()
             //Apos salvar chamar a funcao limpa textos
             //Limpar Campos
             ui->Edt_DataIncubacao->setDate(QDate::currentDate());
-            ui->Edt_Protocolo->setText("-");
+            ui->Edt_Protocolo->setText("");
             ui->CmB_Procedencia->setCurrentIndex(0);
             ui->CmB_Mercado->setCurrentIndex(0);
             ui->CmB_Setor->setCurrentIndex(0);
