@@ -57,30 +57,35 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->Edt_pH2->setEnabled(false);
     //ui->Edt_pH3->setEnabled(false);
 
-    //Validadores para numeros
-    ui->Edt_Biogas1->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_Biogas2->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_Biogas3->setValidator(new QIntValidator(0, 10000000, this));
+    //ui->Edt_Metano1->setValidator(new QIntValidator(0, 10000000, this));
 
-    ui->Edt_Metano1->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_Metano2->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_Metano3->setValidator(new QIntValidator(0, 10000000, this));
+    //Regular Expression
+    QRegExp rx ("[0-9]{1,5}\\.[0-9]{1,5}\\.[0-9]{1,5}\\.[0-9]{1,5}");
 
-    ui->Edt_ST1->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_ST2->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_ST3->setValidator(new QIntValidator(0, 10000000, this));
+    //Validadores para numeros para os campos
+    ui->Edt_Biogas1->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_Biogas1->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_Biogas1->setValidator(new QRegExpValidator (rx, this));
 
-    ui->Edt_SV1->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_SV2->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_SV3->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_Metano1->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_Metano2->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_Metano3->setValidator(new QRegExpValidator (rx, this));
 
-    ui->Edt_DQO1->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_DQO2->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_DQO3->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_ST1->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_ST2->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_ST3->setValidator(new QRegExpValidator (rx, this));
 
-    ui->Edt_pH1->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_pH2->setValidator(new QIntValidator(0, 10000000, this));
-    ui->Edt_pH3->setValidator(new QIntValidator(0, 10000000, this));
+    ui->Edt_SV1->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_SV2->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_SV3->setValidator(new QRegExpValidator (rx, this));
+
+    ui->Edt_DQO1->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_DQO2->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_DQO3->setValidator(new QRegExpValidator (rx, this));
+
+    ui->Edt_pH1->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_pH2->setValidator(new QRegExpValidator (rx, this));
+    ui->Edt_pH3->setValidator(new QRegExpValidator (rx, this));
 }
 
 MainWindow::~MainWindow()
@@ -192,9 +197,24 @@ void MainWindow::on_Btn_Salvar_clicked()
         //Coluna 10 - Biogas
         //Valores Convertidos
 
-        xlsxR.write(row,10,  biogas1.toInt());
-        xlsxR.write(row+1,10, biogas2.toInt());
-        xlsxR.write(row+2,10, biogas3.toInt());
+        //Verificar valores antes de salvar
+        if (biogas1 != "-" && biogas1 != "") {
+            xlsxR.write(row,10,  biogas1.toInt());
+        } else {
+            xlsxR.write(row,10,  "-");
+        }
+
+        if (biogas2 != "-" && biogas2 != "") {
+            xlsxR.write(row+1,10, biogas2.toInt());
+        } else {
+            xlsxR.write(row+1,10, "-");
+        }
+
+        if (biogas3 != "-" && biogas3 != "") {
+            xlsxR.write(row+2,10, biogas3.toInt());
+        } else {
+            xlsxR.write(row+2,10, "-");
+        }
 
         //Linha contendo as celulas selecionadas - Coluna J
         QString LINHASBIOGAS = QString("J%1").arg(linhaInicial) + ":" + QString("J%1").arg(linhaFinal);
@@ -212,9 +232,25 @@ void MainWindow::on_Btn_Salvar_clicked()
         //INICIO-METANO------------------------------------------------------
 
         //Coluna 14 - Metano
-        xlsxR.write(row,14, metano1.toInt());
-        xlsxR.write(row+1,14, metano2.toInt());
-        xlsxR.write(row+2,14, metano3.toInt());
+
+         //Verificar valores antes de salvar
+        if (metano1 != "-" && metano1 != "") {
+            xlsxR.write(row,14, metano1.toInt());
+        } else {
+            xlsxR.write(row,14,  "-");
+        }
+
+        if (metano2 != "-" && metano2 != "") {
+            xlsxR.write(row+1,14, metano2.toInt());
+        } else {
+            xlsxR.write(row+1,14, "-");
+        }
+
+        if (metano3 != "-" && metano3 != "") {
+            xlsxR.write(row+2,14, metano3.toInt());
+        } else {
+            xlsxR.write(row+2,14, "-");
+        }
 
         //Auxiliares de Calculo
         QString LINHASMETANO = QString("N%1").arg(linhaInicial) + ":" + QString("N%1").arg(linhaFinal);
@@ -233,9 +269,24 @@ void MainWindow::on_Btn_Salvar_clicked()
         //INICIO-ST------------------------------------------------------
 
         //Coluna 19 - ST
-        xlsxR.write(row,19, st1.toInt());
-        xlsxR.write(row+1,19, st2.toInt());
-        xlsxR.write(row+2,19, st3.toInt());
+        //Verificar valores antes de salvar
+        if (st1 != "-" && st1 != "") {
+           xlsxR.write(row,19, st1.toFloat());
+        } else {
+           xlsxR.write(row,19,  "-");
+        }
+
+        if (st2 != "-" && st2 != "") {
+           xlsxR.write(row+1,19, st2.toFloat());
+        } else {
+           xlsxR.write(row+1,19, "-");
+        }
+
+        if (st3 != "-" && st3 != "") {
+           xlsxR.write(row+2,19, st3.toFloat());
+        } else {
+           xlsxR.write(row+2,19, "-");
+        }
 
         //Formulas Solidos Totais
         QString LINHASOLIDOSTOTAIS = QString("S%1").arg(linhaInicial) + ":" + QString("S%1").arg(linhaFinal);
@@ -258,9 +309,27 @@ void MainWindow::on_Btn_Salvar_clicked()
         //INICIO-SV------------------------------------------------------
 
         //Coluna 22 - SV
-        xlsxR.write(row,22, sv1.toInt());
-        xlsxR.write(row+1,22, sv2.toInt());
-        xlsxR.write(row+2,22, sv3.toInt());
+        //Verificar valores antes de salvar
+        if (sv1 != "-" && sv1 != "") {
+            xlsxR.write(row,22, sv1.toFloat());
+        } else {
+            QString aux = "";
+            xlsxR.write(row,22, aux.toFloat());
+        }
+
+        if (sv2 != "-" && sv2 != "") {
+            xlsxR.write(row+1,22, sv2.toFloat());
+        } else {
+            QString aux = "";
+            xlsxR.write(row+1,22, aux.toFloat());
+        }
+
+        if (sv3 != "-" && sv3 != "") {
+            xlsxR.write(row+2,22, sv3.toFloat());
+        } else {
+            QString aux = "";
+            xlsxR.write(row+2,22, aux.toFloat());
+        }
 
         //Formulas Solidos Totais
         QString LINHASV = QString("V%1").arg(linhaInicial) + ":" + QString("V%1").arg(linhaFinal);
@@ -287,9 +356,24 @@ void MainWindow::on_Btn_Salvar_clicked()
         //INICIO-DQO------------------------------------------------------
 
         //Coluna 26 - DQO
-        xlsxR.write(row,26, dqo1.toInt());
-        xlsxR.write(row+1,26, dqo2.toInt());
-        xlsxR.write(row+2,26, dqo3.toInt());
+        //Verificar valores antes de salvar
+        if (dqo1 != "-" && dqo1 != "") {
+            xlsxR.write(row,26, dqo1.toInt());
+        } else {
+            xlsxR.write(row,26,  "-");
+        }
+
+        if (dqo2 != "-" && dqo2 != "") {
+            xlsxR.write(row+1,26, dqo2.toInt());
+        } else {
+            xlsxR.write(row+1,26, "-");
+        }
+
+        if (dqo3 != "-" && dqo3 != "") {
+            xlsxR.write(row+2,26, dqo3.toInt());
+        } else {
+            xlsxR.write(row+2,26, "-");
+        }
 
         //Formulas DQO
         QString LINHADQO = QString("Z%1").arg(linhaInicial) + ":" + QString("Z%1").arg(linhaFinal);
@@ -303,9 +387,24 @@ void MainWindow::on_Btn_Salvar_clicked()
         //INICIO-PH------------------------------------------------------
 
         //Coluna 28 - PH
-        xlsxR.write(row,28, ph1.toInt());
-        xlsxR.write(row+1,28, ph2.toInt());
-        xlsxR.write(row+2,28, ph3.toInt());
+        //Verificar valores antes de salvar
+        if (ph1 != "-" && ph1 != "") {
+             xlsxR.write(row,28, ph1.toFloat());
+        } else {
+            xlsxR.write(row,28,  "-");
+        }
+
+        if (ph2 != "-" && ph2 != "") {
+            xlsxR.write(row+1,28, ph2.toFloat());
+        } else {
+            xlsxR.write(row+1,28, "-");
+        }
+
+        if (ph3 != "-" && ph3 != "") {
+             xlsxR.write(row+2,28, ph3.toFloat());
+        } else {
+            xlsxR.write(row+2,28, "-");
+        }
 
         //Formulas PH
         QString LINHAPH = QString("AB%1").arg(linhaInicial) + ":" + QString("AB%1").arg(linhaFinal);
@@ -325,7 +424,7 @@ void MainWindow::on_Btn_Salvar_clicked()
         if (xlsxR.save())
         {
             //Mensagem que salvou o arquivo no XLSX
-            QMessageBox::information(this, "CIBLAB - Salvar", "Salvo com sucesso! - Data de Incubação: " + data_incubacao);
+            QMessageBox::information(this, "CIBLAB", "Salvo com sucesso! - Data de Incubação: " + data_incubacao);
 
             //Apos salvar chamar a funcao limpa textos
             //Limpar Campos
@@ -339,29 +438,29 @@ void MainWindow::on_Btn_Salvar_clicked()
             ui->Edt_PontoColeta->setText("-");
             ui->EdtText_InformacoesComplementares->setText("-");
 
-            ui->Edt_Biogas1->setText("-");
-            ui->Edt_Biogas2->setText("-");
-            ui->Edt_Biogas3->setText("-");
+            ui->Edt_Biogas1->setText("");
+            ui->Edt_Biogas2->setText("");
+            ui->Edt_Biogas3->setText("");
 
-            ui->Edt_Metano1->setText("-");
-            ui->Edt_Metano2->setText("-");
-            ui->Edt_Metano3->setText("-");
+            ui->Edt_Metano1->setText("");
+            ui->Edt_Metano2->setText("");
+            ui->Edt_Metano3->setText("");
 
-            ui->Edt_ST1->setText("-");
-            ui->Edt_ST2->setText("-");
-            ui->Edt_ST3->setText("-");
+            ui->Edt_ST1->setText("");
+            ui->Edt_ST2->setText("");
+            ui->Edt_ST3->setText("");
 
-            ui->Edt_SV1->setText("-");
-            ui->Edt_SV2->setText("-");
-            ui->Edt_SV3->setText("-");
+            ui->Edt_SV1->setText("");
+            ui->Edt_SV2->setText("");
+            ui->Edt_SV3->setText("");
 
-            ui->Edt_DQO1->setText("-");
-            ui->Edt_DQO2->setText("-");
-            ui->Edt_DQO3->setText("-");
+            ui->Edt_DQO1->setText("");
+            ui->Edt_DQO2->setText("");
+            ui->Edt_DQO3->setText("");
 
-            ui->Edt_pH1->setText("-");
-            ui->Edt_pH2->setText("-");
-            ui->Edt_pH3->setText("-");
+            ui->Edt_pH1->setText("");
+            ui->Edt_pH2->setText("");
+            ui->Edt_pH3->setText("");
 
             qDebug() << "[debug] success to save data on xlsx file.";
 
