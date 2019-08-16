@@ -379,7 +379,8 @@ void MainWindow::on_Btn_Salvar_clicked()
         QString LINHADQO = QString("Z%1").arg(linhaInicial) + ":" + QString("Z%1").arg(linhaFinal);
 
         //=MÉDIA(AA2:AA4)
-        xlsxR.write(row,27, "=AVERAGE("+ LINHADQO +")");
+        //=SE(Z3641="-";"-";MÉDIA(Z3641:Z3643))
+        xlsxR.write(row,27, "=IF("+ LINHADQO +"=\"-\";\"-\";AVERAGE("+ LINHADQO +")");
         xlsxR.mergeCells(QString("AA%1").arg(linhaInicial) + ":" + QString("AA%1").arg(linhaFinal), formato);
 
         //FIM-DQO---------------------------------------------------------
@@ -410,7 +411,9 @@ void MainWindow::on_Btn_Salvar_clicked()
         QString LINHAPH = QString("AB%1").arg(linhaInicial) + ":" + QString("AB%1").arg(linhaFinal);
 
         //=MÉDIA(AB2:AB4)
-        xlsxR.write(row,29, "=AVERAGE("+ LINHAPH +")");
+        //=SE(AB3638="-";"-";MÉDIA(AB3638:AB3640))
+        //=IF(AB3638="-";"-";AVERAGE(AB3638:AB3640))
+        xlsxR.write(row,29, "=IF("+ LINHAPH +"=\"-\";\"-\";AVERAGE("+ LINHAPH +")");
         xlsxR.mergeCells(QString("AC%1").arg(linhaInicial) + ":" + QString("AC%1").arg(linhaFinal), formato);
 
         //FIM-PH------------------------------------------------------
