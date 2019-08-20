@@ -110,7 +110,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->setWindowModality(Qt::NonModal);
-        MainWindow->resize(874, 722);
+        MainWindow->resize(763, 722);
         MainWindow->setAutoFillBackground(false);
         MainWindow->setStyleSheet(QString::fromUtf8("QGroupBox {\n"
 "    background-color: #e1e1e1;\n"
@@ -125,7 +125,7 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         GrBox_Classificacao = new QGroupBox(centralWidget);
         GrBox_Classificacao->setObjectName(QString::fromUtf8("GrBox_Classificacao"));
-        GrBox_Classificacao->setGeometry(QRect(1, 1, 471, 621));
+        GrBox_Classificacao->setGeometry(QRect(1, 1, 361, 621));
         GrBox_Classificacao->setAutoFillBackground(false);
         Lbl_DataIncubacao = new QLabel(GrBox_Classificacao);
         Lbl_DataIncubacao->setObjectName(QString::fromUtf8("Lbl_DataIncubacao"));
@@ -179,7 +179,7 @@ public:
         Lbl_PontoColeta->setFont(font);
         Edt_PontoColeta = new QLineEdit(GrBox_Classificacao);
         Edt_PontoColeta->setObjectName(QString::fromUtf8("Edt_PontoColeta"));
-        Edt_PontoColeta->setGeometry(QRect(10, 460, 401, 29));
+        Edt_PontoColeta->setGeometry(QRect(10, 460, 341, 29));
         Edt_PontoColeta->setMaxLength(100);
         Lbl_InformacaoComplementar = new QLabel(GrBox_Classificacao);
         Lbl_InformacaoComplementar->setObjectName(QString::fromUtf8("Lbl_InformacaoComplementar"));
@@ -187,7 +187,7 @@ public:
         Lbl_InformacaoComplementar->setFont(font);
         EdtText_InformacoesComplementares = new QTextEdit(GrBox_Classificacao);
         EdtText_InformacoesComplementares->setObjectName(QString::fromUtf8("EdtText_InformacoesComplementares"));
-        EdtText_InformacoesComplementares->setGeometry(QRect(10, 530, 451, 64));
+        EdtText_InformacoesComplementares->setGeometry(QRect(10, 530, 341, 64));
         EdtText_InformacoesComplementares->setAutoFillBackground(false);
         EdtText_InformacoesComplementares->setAcceptRichText(true);
         CmB_OrigemMateriaPrima = new QComboBox(GrBox_Classificacao);
@@ -449,16 +449,16 @@ public:
         CmB_Procedencia->setGeometry(QRect(10, 160, 261, 25));
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(1, 630, 871, 51));
+        groupBox->setGeometry(QRect(1, 630, 761, 51));
         Btn_Salvar = new QPushButton(groupBox);
         Btn_Salvar->setObjectName(QString::fromUtf8("Btn_Salvar"));
-        Btn_Salvar->setGeometry(QRect(780, 10, 87, 29));
+        Btn_Salvar->setGeometry(QRect(660, 10, 87, 29));
         label_Obrigatorios = new QLabel(groupBox);
         label_Obrigatorios->setObjectName(QString::fromUtf8("label_Obrigatorios"));
         label_Obrigatorios->setGeometry(QRect(20, 20, 121, 16));
         GrBox_Valores = new QGroupBox(centralWidget);
         GrBox_Valores->setObjectName(QString::fromUtf8("GrBox_Valores"));
-        GrBox_Valores->setGeometry(QRect(480, 1, 391, 621));
+        GrBox_Valores->setGeometry(QRect(370, 0, 391, 621));
         GrBox_Valores->setAutoFillBackground(false);
         Lbl_Biogas = new QLabel(GrBox_Valores);
         Lbl_Biogas->setObjectName(QString::fromUtf8("Lbl_Biogas"));
@@ -648,7 +648,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 874, 21));
+        menuBar->setGeometry(QRect(0, 0, 763, 21));
         menuArquivo = new QMenu(menuBar);
         menuArquivo->setObjectName(QString::fromUtf8("menuArquivo"));
         menuAjuda = new QMenu(menuBar);

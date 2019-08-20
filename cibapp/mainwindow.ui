@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>874</width>
+    <width>763</width>
     <height>722</height>
    </rect>
   </property>
@@ -30,7 +30,7 @@
      <rect>
       <x>1</x>
       <y>1</y>
-      <width>471</width>
+      <width>361</width>
       <height>621</height>
      </rect>
     </property>
@@ -266,7 +266,7 @@
       <rect>
        <x>10</x>
        <y>460</y>
-       <width>401</width>
+       <width>341</width>
        <height>29</height>
       </rect>
      </property>
@@ -304,7 +304,7 @@
       <rect>
        <x>10</x>
        <y>530</y>
-       <width>451</width>
+       <width>341</width>
        <height>64</height>
       </rect>
      </property>
@@ -1595,7 +1595,7 @@ p, li { white-space: pre-wrap; }
      <rect>
       <x>1</x>
       <y>630</y>
-      <width>871</width>
+      <width>761</width>
       <height>51</height>
      </rect>
     </property>
@@ -1605,7 +1605,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="Btn_Salvar">
      <property name="geometry">
       <rect>
-       <x>780</x>
+       <x>660</x>
        <y>10</y>
        <width>87</width>
        <height>29</height>
@@ -1632,8 +1632,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QGroupBox" name="GrBox_Valores">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>1</y>
+      <x>370</x>
+      <y>0</y>
       <width>391</width>
       <height>621</height>
      </rect>
@@ -2455,7 +2455,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>874</width>
+     <width>763</width>
      <height>21</height>
     </rect>
    </property>

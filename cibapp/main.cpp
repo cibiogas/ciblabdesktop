@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     MainWindow w;
-    w.setFixedSize(874,722);
+    w.setFixedSize(763,722);
     //set the icon on window
     w.setWindowIcon(QIcon("icon.ico"));
     w.show();

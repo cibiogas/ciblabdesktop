@@ -96,10 +96,16 @@ MainWindow::~MainWindow()
 void MainWindow::on_Btn_Salvar_clicked()
 {
 
-    //Merge de Celulas
-    Format formato;
-    formato.setHorizontalAlignment(Format::AlignHCenter);
-    formato.setVerticalAlignment(Format::AlignVCenter);
+    ui->Btn_Salvar->setEnabled(false);
+    ui->Btn_Salvar->repaint();
+
+    //Mesclar/Cores/Formato
+    QXlsx::Format formatoPadrao;
+    //formatoPadrao.setFontBold(true);
+    //formatoPadrao.setFontSize(20);
+    formatoPadrao.setFontColor(QColor(Qt::black));
+    formatoPadrao.setHorizontalAlignment(Format::AlignHCenter);
+    formatoPadrao.setVerticalAlignment(Format::AlignVCenter);
 
     //Valores do Form
     QString data_incubacao = ui->Edt_DataIncubacao->text();
@@ -107,6 +113,10 @@ void MainWindow::on_Btn_Salvar_clicked()
     QString procedencia = ui->CmB_Procedencia->currentText();
     QString mercado = ui->CmB_Mercado->currentText();
     QString origem = ui->CmB_OrigemMateriaPrima->currentText();
+
+    if (origem == "Padrão") {
+        formatoPadrao.setFontColor(QColor(Qt::blue));
+    }
     QString setor = ui->CmB_Setor->currentText();
     QString amostra = ui->CmB_AmostraFase->currentText();
     QString pontoColeta = ui->Edt_PontoColeta->text();
@@ -165,31 +175,31 @@ void MainWindow::on_Btn_Salvar_clicked()
         //linha e coluna
 
         xlsxR.write(row,1, data_incubacao); // write to cell(row,col).
-        xlsxR.mergeCells(QString("A%1").arg(linhaInicial) + ":" + QString("A%1").arg(linhaFinal), formato);
+        xlsxR.mergeCells(QString("A%1").arg(linhaInicial) + ":" + QString("A%1").arg(linhaFinal),  formatoPadrao);
 
         xlsxR.write(row,2, protocolo);
-        xlsxR.mergeCells(QString("B%1").arg(linhaInicial) + ":" + QString("B%1").arg(linhaFinal), formato);
+        xlsxR.mergeCells(QString("B%1").arg(linhaInicial) + ":" + QString("B%1").arg(linhaFinal),  formatoPadrao);
 
         xlsxR.write(row,3, procedencia);
-        xlsxR.mergeCells(QString("C%1").arg(linhaInicial) + ":" + QString("C%1").arg(linhaFinal), formato);
+        xlsxR.mergeCells(QString("C%1").arg(linhaInicial) + ":" + QString("C%1").arg(linhaFinal),  formatoPadrao);
 
         xlsxR.write(row,4, mercado);
-        xlsxR.mergeCells(QString("D%1").arg(linhaInicial) + ":" + QString("D%1").arg(linhaFinal), formato);
+        xlsxR.mergeCells(QString("D%1").arg(linhaInicial) + ":" + QString("D%1").arg(linhaFinal),  formatoPadrao);
 
         xlsxR.write(row,5, origem);
-        xlsxR.mergeCells(QString("E%1").arg(linhaInicial) + ":" + QString("E%1").arg(linhaFinal), formato);
+        xlsxR.mergeCells(QString("E%1").arg(linhaInicial) + ":" + QString("E%1").arg(linhaFinal),  formatoPadrao);
 
         xlsxR.write(row,6, setor);
-        xlsxR.mergeCells(QString("F%1").arg(linhaInicial) + ":" + QString("F%1").arg(linhaFinal), formato);
+        xlsxR.mergeCells(QString("F%1").arg(linhaInicial) + ":" + QString("F%1").arg(linhaFinal),  formatoPadrao);
 
         xlsxR.write(row,7, amostra);
-        xlsxR.mergeCells(QString("G%1").arg(linhaInicial) + ":" + QString("G%1").arg(linhaFinal), formato);
+        xlsxR.mergeCells(QString("G%1").arg(linhaInicial) + ":" + QString("G%1").arg(linhaFinal),  formatoPadrao);
 
         xlsxR.write(row,8, pontoColeta);
-        xlsxR.mergeCells(QString("H%1").arg(linhaInicial) + ":" + QString("H%1").arg(linhaFinal), formato);
+        xlsxR.mergeCells(QString("H%1").arg(linhaInicial) + ":" + QString("H%1").arg(linhaFinal),  formatoPadrao);
 
         xlsxR.write(row,9, informacao);
-        xlsxR.mergeCells(QString("I%1").arg(linhaInicial) + ":" + QString("I%1").arg(linhaFinal), formato);
+        xlsxR.mergeCells(QString("I%1").arg(linhaInicial) + ":" + QString("I%1").arg(linhaFinal),  formatoPadrao);
 
         //Escrever 3 amostras na mesma coluna e em linhas diferentes
 
@@ -313,22 +323,19 @@ void MainWindow::on_Btn_Salvar_clicked()
         if (sv1 != "-" && sv1 != "") {
             xlsxR.write(row,22, sv1.toFloat());
         } else {
-            QString aux = "";
-            xlsxR.write(row,22, aux.toFloat());
+            xlsxR.write(row,22, NULL);
         }
 
         if (sv2 != "-" && sv2 != "") {
             xlsxR.write(row+1,22, sv2.toFloat());
         } else {
-            QString aux = "";
-            xlsxR.write(row+1,22, aux.toFloat());
+            xlsxR.write(row+1,22, NULL);
         }
 
         if (sv3 != "-" && sv3 != "") {
             xlsxR.write(row+2,22, sv3.toFloat());
         } else {
-            QString aux = "";
-            xlsxR.write(row+2,22, aux.toFloat());
+            xlsxR.write(row+2,22, NULL);
         }
 
         //Formulas Solidos Totais
@@ -377,11 +384,14 @@ void MainWindow::on_Btn_Salvar_clicked()
 
         //Formulas DQO
         QString LINHADQO = QString("Z%1").arg(linhaInicial) + ":" + QString("Z%1").arg(linhaFinal);
+        QString linhaCondicionalDQO = QString("Z%1").arg(linhaInicial);
 
         //=MÉDIA(AA2:AA4)
         //=SE(Z3641="-";"-";MÉDIA(Z3641:Z3643))
-        xlsxR.write(row,27, "=IF("+ LINHADQO +"=\"-\";\"-\";AVERAGE("+ LINHADQO +")");
-        xlsxR.mergeCells(QString("AA%1").arg(linhaInicial) + ":" + QString("AA%1").arg(linhaFinal), formato);
+        //xlsxR.write(row,27, "=IF("+ linhaCondicionalDQO +"=\"-\";\"-\";AVERAGE("+ LINHADQO +"))");
+
+        xlsxR.write(row,27, "=AVERAGE("+ LINHADQO +")");
+        xlsxR.mergeCells(QString("AA%1").arg(linhaInicial) + ":" + QString("AA%1").arg(linhaFinal),  formatoPadrao);
 
         //FIM-DQO---------------------------------------------------------
 
@@ -409,19 +419,34 @@ void MainWindow::on_Btn_Salvar_clicked()
 
         //Formulas PH
         QString LINHAPH = QString("AB%1").arg(linhaInicial) + ":" + QString("AB%1").arg(linhaFinal);
+        QString linhaCondicionalPH = QString("AB%1").arg(linhaInicial);
 
         //=MÉDIA(AB2:AB4)
         //=SE(AB3638="-";"-";MÉDIA(AB3638:AB3640))
         //=IF(AB3638="-";"-";AVERAGE(AB3638:AB3640))
-        xlsxR.write(row,29, "=IF("+ LINHAPH +"=\"-\";\"-\";AVERAGE("+ LINHAPH +")");
-        xlsxR.mergeCells(QString("AC%1").arg(linhaInicial) + ":" + QString("AC%1").arg(linhaFinal), formato);
+
+        //xlsxR.write(row,29, "=IF("+ linhaCondicionalPH +"='-';'-';AVERAGE("+ LINHAPH +")");
+
+        xlsxR.write(row,29, "=AVERAGE("+ LINHAPH +")");
+        //xlsxR.mergeCells(QString("AC%1").arg(linhaInicial) + ":" + QString("AC%1").arg(linhaFinal),  formatoPadrao);
+
+
+        //FORMULA COMPLETA DEBUG
+        //QString formulaCompletaPH = "=IF("+ linhaCondicionalPH +"=\"-\";\"-\";AVERAGE("+ LINHAPH +"))";
+        //qDebug() << "[debug] Formula do PH - " + formulaCompletaPH;
+
 
         //FIM-PH------------------------------------------------------
 
         //Formatar linhas com textos centralizados
-        xlsxR.setRowFormat(row, formato);
-        xlsxR.setRowFormat(row+1, formato);
-        xlsxR.setRowFormat(row+2, formato);
+        //xlsxR.setRowFormat(row, formato);
+        //xlsxR.setRowFormat(row+1, formato);
+        //xlsxR.setRowFormat(row+2, formato);
+
+        //Adicionar cores nas linhas
+        xlsxR.setRowFormat(row, formatoPadrao);
+        xlsxR.setRowFormat(row+1, formatoPadrao);
+        xlsxR.setRowFormat(row+2, formatoPadrao);
 
         //Salva linha na planilha
         if (xlsxR.save())
@@ -464,6 +489,8 @@ void MainWindow::on_Btn_Salvar_clicked()
             ui->Edt_pH1->setText("");
             ui->Edt_pH2->setText("");
             ui->Edt_pH3->setText("");
+
+            ui->Btn_Salvar->setEnabled(true);
 
             qDebug() << "[debug] success to save data on xlsx file.";
 
