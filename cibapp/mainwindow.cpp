@@ -502,6 +502,7 @@ void MainWindow::on_Btn_Salvar_clicked()
     }
     else
     {
+        QMessageBox::critical(this, "CIBLAB - Salvar", "Ocorreu um erro ao salvar as informações!");
         qDebug() << "[debug][error] failed to load xlsx file.";
     }
 
